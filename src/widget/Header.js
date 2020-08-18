@@ -150,26 +150,31 @@ export default class HeaderWidget extends React.Component {
         .get(api2)
         .then((response) => {
           response = response.data;
+          this.LoadingShowHide(false);
           if (response != null && response.ResultList.length > 0) {
-            this.LoadingShowHide(false);
             console.log('api: ' + api2 + '\n' + JSON.stringify(response));
             Actions.SearchList({
               sube: this.state.sube,
               items: response.ResultList,
             });
+          } else {
+            this.setState({inputHide: true});
+
+            alert('Arama yaptığınız ürün sistemde mevcut değildir');
           }
         })
         .catch(function (error) {
-          alert(JSON.stringify(error));
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log('Error', error.message);
-          }
+          alert('Lütfen internet bağlantınızı kontrol ediniz.');
+          // alert(JSON.stringify(error));
+          // if (error.response) {
+          //   console.log(error.response.data);
+          //   console.log(error.response.status);
+          //   console.log(error.response.headers);
+          // } else if (error.request) {
+          //   console.log(error.request);
+          // } else {
+          //   console.log('Error', error.message);
+          // }
         });
     } else {
       // if (!this.state.IsSearch) {
@@ -213,16 +218,7 @@ export default class HeaderWidget extends React.Component {
           }
         })
         .catch(function (error) {
-          alert(JSON.stringify(error));
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log('Error', error.message);
-          }
+          alert('Lütfen internet bağlantınızı kontrol ediniz.');
         });
     } else {
       // if (!this.state.IsSearch) {

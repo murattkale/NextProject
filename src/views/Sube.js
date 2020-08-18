@@ -73,15 +73,7 @@ export default class Sube extends React.Component {
         }
       })
       .catch(function (error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
+        alert('Lütfen internet bağlantınızı kontrol ediniz.');
       });
     this.state.sube = null;
   }
@@ -157,7 +149,6 @@ export default class Sube extends React.Component {
               <Body style={{}}>
                 <Text
                   style={{
-
                     textAlign: 'center',
                     fontSize: 37,
                     marginTop: 20,
@@ -167,7 +158,6 @@ export default class Sube extends React.Component {
 
                 <H3
                   style={{
-
                     fontSize: 18,
                     textAlign: 'center',
                     marginBottom: 10,
@@ -178,40 +168,37 @@ export default class Sube extends React.Component {
                   hangisini olduğunu bilmiyorsanız...
                 </H3>
 
-                <View>
-                  <View
+                <View
+                  style={{
+                    marginTop: 20,
+                    width: '100%',
+                    // flexDirection: 'row',
+                    // justifyContent: 'center',
+
+                    // paddingVertical: 5,
+                    borderColor: '#c2c2c1',
+                    borderWidth: 1,
+                    borderRadius: 2,
+                    // borderRadius: 5,
+                    // textAlign: 'center',
+                  }}>
+                  <Picker
+                    mode="dropdown"
+                    placeholderStyle={{color: '#bfc6ea'}}
+                    placeholderIconColor="#007aff"
                     style={{
-                      marginTop: 20,
+                      height: 40,
                       width: '100%',
-                      flexDirection: 'row',
+                      color: '#747474',
                       justifyContent: 'center',
-
-                      paddingVertical: 5,
-                      borderWidth: 1,
-                      borderColor: '#c2c2c1',
-                      // borderRadius: 5,
                       textAlign: 'center',
-                    }}>
-                    <Picker
-                      mode="dropdown"
-                      placeholderStyle={{color: '#bfc6ea'}}
-                      placeholderIconColor="#007aff"
-                      style={{
-                        height: 40,
-                        width: '100%',
-                        color: '#747474',
-                        justifyContent: 'center',
-                        textAlign: 'center',
-                      }}
-                      selectedValue={this.state?.sube} //
-                      onValueChange={(value, key) =>
-                        this.setSearch(value, key)
-                      }>
-                      <Picker.Item label="Şube Seçiniz" />
+                    }}
+                    selectedValue={this.state?.sube} //
+                    onValueChange={(value, key) => this.setSearch(value, key)}>
+                    <Picker.Item label="Şube Seçiniz" />
 
-                      {this.setDatas()}
-                    </Picker>
-                  </View>
+                    {this.setDatas()}
+                  </Picker>
                 </View>
               </Body>
             </CardItem>

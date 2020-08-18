@@ -48,6 +48,8 @@ export default class Login extends React.Component {
       UserName: '',
       Password: '',
     };
+
+    // Subscribe
   }
 
   async componentDidMount() {
@@ -87,34 +89,16 @@ export default class Login extends React.Component {
 
     console.log(api);
 
-    var getAxios = await axios.get(api).catch(function (error) {
+    var getAxios = await axios.get(api, {timeout: 0.5}).catch(function (error) {
       this.props.LoadingShowHide(false);
-      alert(JSON.stringify(error));
-      if (error.response) {
-        // Request made and server responded
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.log('Error', error.message);
-      }
+      alert('Lütfen internet bağlantınızı kontrol ediniz.');
+      return;
     });
+    this.props.LoadingShowHide(false);
+
     var result = await getAxios;
     console.log(JSON.stringify(result));
     result = result.data;
-
-    this.props.LoadingShowHide(false);
-
-    if (result.subeler.length < 1) {
-      alert(
-        'Girdiğiniz kullanıcıya ait şube tanımlı değildir. Lütfen yetkililerle iletişime geçiniz.',
-      );
-      return;
-    }
 
     // alert(JSON.stringify(result.user));
     if (result.user != null && result.user.Id > 0) {
@@ -172,7 +156,6 @@ export default class Login extends React.Component {
               <Body>
                 <Text
                   style={{
-                    
                     textAlign: 'left',
                     fontSize: 37,
                   }}>
@@ -182,7 +165,6 @@ export default class Login extends React.Component {
                 <H3
                   note
                   style={{
-                    
                     fontSize: 18,
                     textAlign: 'left',
                     marginBottom: 10,
@@ -199,7 +181,10 @@ export default class Login extends React.Component {
                     value={this.state.UserName}
                     onChangeText={this.changeUsername.bind(this)}
                     returnKeyType="next"
-                    onSubmitEditing={(event) => this.Login()}
+                    onSubmitEditing={() => {
+                      this.secondTextInput._root.focus();
+                    }}
+                    blurOnSubmit={false}
                   />
                 </Item>
                 <Item regular style={{marginBottom: 5}}>
@@ -211,13 +196,15 @@ export default class Login extends React.Component {
                     onChangeText={this.changePassword.bind(this)}
                     returnKeyType="next"
                     onSubmitEditing={(event) => this.Login()}
+                    ref={(input) => {
+                      this.secondTextInput = input;
+                    }}
                   />
                 </Item>
                 <ListItem>
                   <View style={{borderBottomColor: 'white'}}>
                     <Text
                       style={{
-                        
                         textDecorationLine: 'underline',
                         color: 'blue',
                         position: 'absolute',
@@ -240,9 +227,7 @@ export default class Login extends React.Component {
                     height: 60,
                     borderRadius: 5,
                   }}>
-                  <Text style={{color: 'white'}}>
-                    Giriş Yap
-                  </Text>
+                  <Text style={{color: 'white'}}>Giriş Yap</Text>
                 </Button>
 
                 <Card
@@ -278,7 +263,6 @@ export default class Login extends React.Component {
                           console.log('tıkla');
                         }}
                         style={{
-                         
                           flex: 1,
                           color: '#889099',
                           textAlign: 'left',
@@ -288,7 +272,6 @@ export default class Login extends React.Component {
 
                       <Text
                         style={{
-                          
                           flex: 1,
                           marginTop: 10,
                           textAlign: 'left',

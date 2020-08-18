@@ -159,8 +159,7 @@ export default class Camera extends React.Component {
         }
       })
       .catch(function (error) {
-        alert(JSON.stringify(error));
-        console.log('error: ' + error);
+        alert('Lütfen internet bağlantınızı kontrol ediniz.');
       });
   }
 
@@ -171,7 +170,7 @@ export default class Camera extends React.Component {
           <HeaderWidget {...this.props} toggleBack title={'Barcode'} />
           <CameraKitCameraScreen
             // onBottomButtonPressed={(event) => this.onBottomButtonPressed(event)}
-          
+
             showFrame={true}
             scanBarcode={true}
             laserColor={'#FF3D00'}

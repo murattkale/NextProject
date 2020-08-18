@@ -174,16 +174,7 @@ export default class Detail extends Component {
         }
       })
       .catch(function (error) {
-        alert(JSON.stringify(error));
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
+        alert('Lütfen internet bağlantınızı kontrol ediniz.');
       });
   }
 
@@ -257,7 +248,7 @@ export default class Detail extends Component {
               </Right>
             </CardItem>
 
-            <ListItem  thumbnail>
+            <ListItem thumbnail>
               <Left>
                 <Thumbnail square source={pImage} />
               </Left>
@@ -267,7 +258,6 @@ export default class Detail extends Component {
                   <View>
                     <ListItem
                       style={{
-
                         borderTopColor: 'white',
                         fontSize: 8,
                       }}>
@@ -284,7 +274,7 @@ export default class Detail extends Component {
                       </Right>
                     </ListItem>
 
-                    <ListItem >
+                    <ListItem>
                       <Left style={{flex: 0.6}}>
                         <Text note>Malzeme Kodu</Text>
                       </Left>
@@ -296,7 +286,7 @@ export default class Detail extends Component {
                       </Right>
                     </ListItem>
 
-                    <ListItem >
+                    <ListItem>
                       <Left style={{flex: 0.6}}>
                         <Text note>Ana Birim</Text>
                       </Left>
@@ -309,7 +299,6 @@ export default class Detail extends Component {
 
                     <ListItem
                       style={{
-
                         borderBottomColor: 'white',
                       }}>
                       <Left style={{flex: 0.6}}>
@@ -344,8 +333,8 @@ export default class Detail extends Component {
                   </Text>
                 </TabHeading>
               }>
-              <List >
-                <ListItem >
+              <List>
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       KDV Oranı
@@ -359,7 +348,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem >
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note>KDV Dahil Satış Fiyatı</Text>
                   </Left>
@@ -406,8 +395,8 @@ export default class Detail extends Component {
                   </Text>
                 </TabHeading>
               }>
-              <List >
-                <ListItem >
+              <List>
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Gelecek Miktar
@@ -421,7 +410,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem >
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note>Gidecek Miktar</Text>
                   </Left>
@@ -433,7 +422,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem >
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note>Ortamala Satış Miktarı</Text>
                   </Left>
@@ -444,7 +433,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem >
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Satış Miktarı
@@ -457,7 +446,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem >
+                <ListItem>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Stok Miktarı
