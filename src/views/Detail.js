@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   Modal,
+  Platform,
 } from 'react-native';
 
 import {
@@ -258,13 +259,11 @@ export default class Detail extends Component {
                   <View>
                     <ListItem
                       style={{
+                        height: Platform.OS === 'ios' ? 40 : 40,
                         borderTopColor: 'white',
-                        fontSize: 8,
                       }}>
                       <Left style={{flex: 0.6}}>
-                        <Text note numberOfLines={1}>
-                          Ürün Kodu
-                        </Text>
+                        <Text note>Ürün Kodu</Text>
                       </Left>
 
                       <Right style={{flex: 0.4}}>
@@ -274,7 +273,7 @@ export default class Detail extends Component {
                       </Right>
                     </ListItem>
 
-                    <ListItem>
+                    <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                       <Left style={{flex: 0.6}}>
                         <Text note>Malzeme Kodu</Text>
                       </Left>
@@ -286,7 +285,7 @@ export default class Detail extends Component {
                       </Right>
                     </ListItem>
 
-                    <ListItem>
+                    <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                       <Left style={{flex: 0.6}}>
                         <Text note>Ana Birim</Text>
                       </Left>
@@ -300,6 +299,7 @@ export default class Detail extends Component {
                     <ListItem
                       style={{
                         borderBottomColor: 'white',
+                        height: Platform.OS === 'ios' ? 40 : 40,
                       }}>
                       <Left style={{flex: 0.6}}>
                         <Text note numberOfLines={1}>
@@ -334,7 +334,7 @@ export default class Detail extends Component {
                 </TabHeading>
               }>
               <List>
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       KDV Oranı
@@ -348,7 +348,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note>KDV Dahil Satış Fiyatı</Text>
                   </Left>
@@ -367,9 +367,8 @@ export default class Detail extends Component {
                 </ListItem>
                 <ListItem
                   style={{
-                    // marginTop: 20,
-
                     borderBottomColor: 'white',
+                    height: Platform.OS === 'ios' ? 40 : 40,
                   }}>
                   <Text note numberOfLines={1}>
                     Kampanya Bilgisi :{' '}
@@ -396,7 +395,7 @@ export default class Detail extends Component {
                 </TabHeading>
               }>
               <List>
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Gelecek Miktar
@@ -410,7 +409,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note>Gidecek Miktar</Text>
                   </Left>
@@ -422,7 +421,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note>Ortamala Satış Miktarı</Text>
                   </Left>
@@ -433,7 +432,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Satış Miktarı
@@ -446,7 +445,7 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem>
+                <ListItem style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Stok Miktarı
@@ -459,7 +458,11 @@ export default class Detail extends Component {
                   </Right>
                 </ListItem>
 
-                <ListItem style={{borderBottomColor: 'white'}}>
+                <ListItem
+                  style={{
+                    borderBottomColor: 'white',
+                    height: Platform.OS === 'ios' ? 40 : 40,
+                  }}>
                   <Left style={{flex: 0.6}}>
                     <Text note numberOfLines={1}>
                       Kalan Miktar

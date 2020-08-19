@@ -27,7 +27,8 @@ export default class App extends React.Component {
       loadingVisible: false,
       isLogined: false,
       // ApiUrl: 'http://localhost:51246/',
-      ApiUrl: 'http://176.236.208.102:8084',
+      ApiUrl: 'http://next.zirhlioglugida.com.tr:8084',
+      // ApiUrl: 'http://176.236.208.102:8084',
     };
   }
 

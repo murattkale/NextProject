@@ -89,9 +89,9 @@ export default class Login extends React.Component {
 
     console.log(api);
 
-    var getAxios = await axios.get(api, {timeout: 0.5}).catch(function (error) {
-      this.props.LoadingShowHide(false);
+    var getAxios = await axios.get(api, {timeout: 0.1}).catch(function (error) {
       alert('Lütfen internet bağlantınızı kontrol ediniz.');
+      this.props.LoadingShowHide(false);
       return;
     });
     this.props.LoadingShowHide(false);

@@ -18,7 +18,7 @@ import {
   Input,
   Item,
 } from 'native-base';
-import axios from 'axios';
+
 import {
   Text,
   View,
@@ -32,6 +32,8 @@ import {
 import {Actions, Scene, Router} from 'react-native-router-flux';
 
 import OptionsMenu from 'react-native-options-menu';
+
+import axios from 'axios';
 
 import {
   MenuContext,
@@ -231,7 +233,38 @@ export default class HeaderWidget extends React.Component {
   }
 
   click_print() {
-    // this.setSearchMore();
+    this.LoadingShowHide(true);
+    alert('print click');
+    this.LoadingShowHide(false);
+
+    var api2 =
+      this.props.getApiUrl() +
+      '/api/Urun/mob_okutulan_malzeme_etiket_basimi?sube=' +
+      this.state.sube +
+      '&malzeme_kodu=' +
+      this.state.malzeme_kodu;
+
+    console.log(api2);
+
+    return;
+
+    axios
+      .get(api2)
+      .then((response) => {
+        this.LoadingShowHide(false);
+        response = response.data;
+        if (response != null && response.ResultList.length > 0) {
+          console.log(JSON.parse(response));
+          alert('Etiket basım onayına gönderildi.');
+        } else {
+          alert(
+            'Etiket basımında beklenmeyen bir hata oluştu. Lütfen yetkililere bildiriniz.',
+          );
+        }
+      })
+      .catch(function (error) {
+        alert('Lütfen internet bağlantınızı kontrol ediniz.');
+      });
   }
 
   click_list() {
@@ -241,51 +274,51 @@ export default class HeaderWidget extends React.Component {
   _getRMenu() {
     if (this.state.treeDot) {
       return (
-        // <View style={{marginLeft: 10, marginTop: -5}}>
-        //   <MenuContext style={{position: 'relative', top: 20}}>
-        //     <View style={{width: 50}}>
-        //       <Menu style={{}}>
-        //         <MenuTrigger
-        //           text={
-        //             <Icon
-        //               style={{
-        //                 color: 'white',
-        //               }}
-        //               // onPress={() => this.setSearchMore()}
-        //               type="MaterialIcons"
-        //               name="more-vert"
-        //             />
-        //           }
-        //         />
-        //         <MenuOptions style={{}}>
-        //           <MenuOption
-        //             onSelect={() => this.click_print()}
-        //             text="Print"
-        //           />
-        //           <MenuOption onSelect={() => this.click_list()} text="List" />
-        //         </MenuOptions>
-        //       </Menu>
-        //     </View>
-        //   </MenuContext>
-        // </View>
+        <View style={{marginLeft: 10, marginTop: -5}}>
+          <MenuContext style={{position: 'relative', top: 20}}>
+            <View style={{width: 50}}>
+              <Menu style={{}}>
+                <MenuTrigger
+                  text={
+                    <Icon
+                      style={{
+                        color: 'white',
+                      }}
+                      // onPress={() => this.setSearchMore()}
+                      type="MaterialIcons"
+                      name="more-vert"
+                    />
+                  }
+                />
+                <MenuOptions style={{}}>
+                  <MenuOption
+                    onSelect={() => this.click_print()}
+                    text="Print"
+                  />
+                  <MenuOption onSelect={() => this.click_list()} text="List" />
+                </MenuOptions>
+              </Menu>
+            </View>
+          </MenuContext>
+        </View>
 
-        <OptionsMenu
-          customButton={
-            <Icon
-              style={{
-                color: 'white',
-                position: 'relative',
-                top: -12,
-                left: -5,
-              }}
-              type="MaterialIcons"
-              name="more-vert"
-            />
-          }
-          destructiveIndex={1}
-          options={['Print', 'List']}
-          actions={[this.click_print, this.click_list]}
-        />
+        // <OptionsMenu
+        //   customButton={
+        //     <Icon
+        //       style={{
+        //         color: 'white',
+        //         position: 'relative',
+        //         top: -12,
+        //         left: -5,
+        //       }}
+        //       type="MaterialIcons"
+        //       name="more-vert"
+        //     />
+        //   }
+        //   destructiveIndex={1}
+        //   options={['Print', 'List']}
+        //   actions={[this.click_print, this.click_list]}
+        // />
 
         // <Icon
         //   style={{
