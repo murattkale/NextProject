@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.5.68
 # min_api: 16
-# pg_map_id: b1e8f3d
+# pg_map_id: e562834
 androidx.activity.Cancellable -> androidx.activity.a:
 androidx.activity.ComponentActivity -> androidx.activity.ComponentActivity:
     androidx.activity.OnBackPressedDispatcher mOnBackPressedDispatcher -> f
@@ -23439,13 +23439,22 @@ com.google.zxing.MultiFormatReader -> c.d.b.h:
 com.google.zxing.NotFoundException -> c.d.b.i:
     com.google.zxing.NotFoundException INSTANCE -> d
     com.google.zxing.NotFoundException getNotFoundInstance() -> a
-com.google.zxing.Reader -> c.d.b.j:
+com.google.zxing.PlanarYUVLuminanceSource -> c.d.b.j:
+    int left -> f
+    int top -> g
+    int dataWidth -> d
+    int dataHeight -> e
+    byte[] yuvData -> c
+    byte[] getRow(int,byte[]) -> a
+    void reverseHorizontal(int,int) -> a
+    byte[] getMatrix() -> b
+com.google.zxing.Reader -> c.d.b.k:
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     void reset() -> a
-com.google.zxing.ReaderException -> c.d.b.k:
+com.google.zxing.ReaderException -> c.d.b.l:
     java.lang.StackTraceElement[] NO_TRACE -> c
     boolean isStackTrace -> b
-com.google.zxing.Result -> c.d.b.l:
+com.google.zxing.Result -> c.d.b.m:
     com.google.zxing.ResultPoint[] resultPoints -> c
     byte[] rawBytes -> b
     com.google.zxing.BarcodeFormat format -> d
@@ -23459,7 +23468,7 @@ com.google.zxing.Result -> c.d.b.l:
     java.util.Map getResultMetadata() -> c
     com.google.zxing.ResultPoint[] getResultPoints() -> d
     java.lang.String getText() -> e
-com.google.zxing.ResultMetadataType -> c.d.b.m:
+com.google.zxing.ResultMetadataType -> c.d.b.n:
     com.google.zxing.ResultMetadataType STRUCTURED_APPEND_SEQUENCE -> k
     com.google.zxing.ResultMetadataType STRUCTURED_APPEND_PARITY -> l
     com.google.zxing.ResultMetadataType UPC_EAN_EXTENSION -> i
@@ -23472,7 +23481,7 @@ com.google.zxing.ResultMetadataType -> c.d.b.m:
     com.google.zxing.ResultMetadataType POSSIBLE_COUNTRY -> h
     com.google.zxing.ResultMetadataType ERROR_CORRECTION_LEVEL -> e
     com.google.zxing.ResultMetadataType ISSUE_NUMBER -> f
-com.google.zxing.ResultPoint -> c.d.b.n:
+com.google.zxing.ResultPoint -> c.d.b.o:
     float y -> b
     float x -> a
     float crossProductZ(com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint) -> a
@@ -23480,19 +23489,19 @@ com.google.zxing.ResultPoint -> c.d.b.n:
     float getX() -> a
     void orderBestPatterns(com.google.zxing.ResultPoint[]) -> a
     float getY() -> b
-com.google.zxing.ResultPointCallback -> c.d.b.o:
+com.google.zxing.ResultPointCallback -> c.d.b.p:
     void foundPossibleResultPoint(com.google.zxing.ResultPoint) -> a
-com.google.zxing.aztec.AztecDetectorResult -> c.d.b.p.a:
+com.google.zxing.aztec.AztecDetectorResult -> c.d.b.q.a:
     int nbDatablocks -> d
     int nbLayers -> e
     boolean compact -> c
     int getNbDatablocks() -> c
     int getNbLayers() -> d
     boolean isCompact() -> e
-com.google.zxing.aztec.AztecReader -> c.d.b.p.b:
+com.google.zxing.aztec.AztecReader -> c.d.b.q.b:
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     void reset() -> a
-com.google.zxing.aztec.decoder.Decoder -> c.d.b.p.c.a:
+com.google.zxing.aztec.decoder.Decoder -> c.d.b.q.c.a:
     com.google.zxing.aztec.AztecDetectorResult ddata -> a
     java.lang.String[] PUNCT_TABLE -> e
     java.lang.String[] MIXED_TABLE -> d
@@ -23509,9 +23518,9 @@ com.google.zxing.aztec.decoder.Decoder -> c.d.b.p.c.a:
     int totalBitsInLayer(int,boolean) -> a
     boolean[] correctBits(boolean[]) -> b
     java.lang.String getEncodedData(boolean[]) -> c
-com.google.zxing.aztec.decoder.Decoder$1 -> c.d.b.p.c.a$a:
+com.google.zxing.aztec.decoder.Decoder$1 -> c.d.b.q.c.a$a:
     int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table -> a
-com.google.zxing.aztec.decoder.Decoder$Table -> c.d.b.p.c.a$b:
+com.google.zxing.aztec.decoder.Decoder$Table -> c.d.b.q.c.a$b:
     com.google.zxing.aztec.decoder.Decoder$Table BINARY -> g
     com.google.zxing.aztec.decoder.Decoder$Table PUNCT -> f
     com.google.zxing.aztec.decoder.Decoder$Table LOWER -> c
@@ -23519,7 +23528,7 @@ com.google.zxing.aztec.decoder.Decoder$Table -> c.d.b.p.c.a$b:
     com.google.zxing.aztec.decoder.Decoder$Table DIGIT -> e
     com.google.zxing.aztec.decoder.Decoder$Table[] $VALUES -> h
     com.google.zxing.aztec.decoder.Decoder$Table MIXED -> d
-com.google.zxing.aztec.detector.Detector -> c.d.b.p.d.a:
+com.google.zxing.aztec.detector.Detector -> c.d.b.q.d.a:
     int[] EXPECTED_CORNER_BITS -> g
     int shift -> f
     int nbDataBlocks -> d
@@ -23545,13 +23554,13 @@ com.google.zxing.aztec.detector.Detector -> c.d.b.p.d.a:
     int getColor(com.google.zxing.aztec.detector.Detector$Point,com.google.zxing.aztec.detector.Detector$Point) -> b
     com.google.zxing.aztec.detector.Detector$Point getMatrixCenter() -> b
     com.google.zxing.ResultPoint[] getMatrixCornerPoints(com.google.zxing.ResultPoint[]) -> b
-com.google.zxing.aztec.detector.Detector$Point -> c.d.b.p.d.a$a:
+com.google.zxing.aztec.detector.Detector$Point -> c.d.b.q.d.a$a:
     int y -> b
     int x -> a
     int getX() -> a
     int getY() -> b
     com.google.zxing.ResultPoint toResultPoint() -> c
-com.google.zxing.common.BitArray -> c.d.b.q.a:
+com.google.zxing.common.BitArray -> c.d.b.r.a:
     int[] bits -> b
     int size -> c
     void clear() -> a
@@ -23565,7 +23574,7 @@ com.google.zxing.common.BitArray -> c.d.b.q.a:
     void reverse() -> d
     void set(int) -> d
     int[] makeArray(int) -> e
-com.google.zxing.common.BitMatrix -> c.d.b.q.b:
+com.google.zxing.common.BitMatrix -> c.d.b.r.b:
     int[] bits -> e
     int rowSize -> d
     int width -> b
@@ -23584,7 +23593,7 @@ com.google.zxing.common.BitMatrix -> c.d.b.q.b:
     int[] getTopLeftOnBit() -> d
     int getWidth() -> e
     void rotate180() -> f
-com.google.zxing.common.BitSource -> c.d.b.q.c:
+com.google.zxing.common.BitSource -> c.d.b.r.c:
     byte[] bytes -> a
     int byteOffset -> b
     int bitOffset -> c
@@ -23592,7 +23601,7 @@ com.google.zxing.common.BitSource -> c.d.b.q.c:
     int readBits(int) -> a
     int getBitOffset() -> b
     int getByteOffset() -> c
-com.google.zxing.common.CharacterSetECI -> c.d.b.q.d:
+com.google.zxing.common.CharacterSetECI -> c.d.b.r.d:
     com.google.zxing.common.CharacterSetECI ISO8859_2 -> f
     com.google.zxing.common.CharacterSetECI ISO8859_4 -> h
     com.google.zxing.common.CharacterSetECI GB18030 -> C
@@ -23626,7 +23635,7 @@ com.google.zxing.common.CharacterSetECI -> c.d.b.q.d:
     com.google.zxing.common.CharacterSetECI ASCII -> A
     java.util.Map VALUE_TO_ECI -> E
     com.google.zxing.common.CharacterSetECI getCharacterSetECIByValue(int) -> f
-com.google.zxing.common.DecoderResult -> c.d.b.q.e:
+com.google.zxing.common.DecoderResult -> c.d.b.r.e:
     byte[] rawBytes -> a
     java.lang.Object other -> f
     java.util.List byteSegments -> d
@@ -23648,15 +23657,15 @@ com.google.zxing.common.DecoderResult -> c.d.b.q.e:
     int getStructuredAppendSequenceNumber() -> g
     java.lang.String getText() -> h
     boolean hasStructuredAppend() -> i
-com.google.zxing.common.DefaultGridSampler -> c.d.b.q.f:
+com.google.zxing.common.DefaultGridSampler -> c.d.b.r.f:
     com.google.zxing.common.BitMatrix sampleGrid(com.google.zxing.common.BitMatrix,int,int,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float) -> a
     com.google.zxing.common.BitMatrix sampleGrid(com.google.zxing.common.BitMatrix,int,int,com.google.zxing.common.PerspectiveTransform) -> a
-com.google.zxing.common.DetectorResult -> c.d.b.q.g:
+com.google.zxing.common.DetectorResult -> c.d.b.r.g:
     com.google.zxing.ResultPoint[] points -> b
     com.google.zxing.common.BitMatrix bits -> a
     com.google.zxing.common.BitMatrix getBits() -> a
     com.google.zxing.ResultPoint[] getPoints() -> b
-com.google.zxing.common.GlobalHistogramBinarizer -> c.d.b.q.h:
+com.google.zxing.common.GlobalHistogramBinarizer -> c.d.b.r.h:
     byte[] luminances -> b
     int[] buckets -> c
     byte[] EMPTY -> d
@@ -23664,13 +23673,13 @@ com.google.zxing.common.GlobalHistogramBinarizer -> c.d.b.q.h:
     com.google.zxing.common.BitMatrix getBlackMatrix() -> a
     com.google.zxing.common.BitArray getBlackRow(int,com.google.zxing.common.BitArray) -> a
     void initArrays(int) -> a
-com.google.zxing.common.GridSampler -> c.d.b.q.i:
+com.google.zxing.common.GridSampler -> c.d.b.r.i:
     com.google.zxing.common.GridSampler gridSampler -> a
     void checkAndNudgePoints(com.google.zxing.common.BitMatrix,float[]) -> a
     com.google.zxing.common.GridSampler getInstance() -> a
     com.google.zxing.common.BitMatrix sampleGrid(com.google.zxing.common.BitMatrix,int,int,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float) -> a
     com.google.zxing.common.BitMatrix sampleGrid(com.google.zxing.common.BitMatrix,int,int,com.google.zxing.common.PerspectiveTransform) -> a
-com.google.zxing.common.HybridBinarizer -> c.d.b.q.j:
+com.google.zxing.common.HybridBinarizer -> c.d.b.r.j:
     com.google.zxing.common.BitMatrix matrix -> e
     int[][] calculateBlackPoints(byte[],int,int,int,int) -> a
     void calculateThresholdForBlock(byte[],int,int,int,int,int[][],com.google.zxing.common.BitMatrix) -> a
@@ -23678,7 +23687,7 @@ com.google.zxing.common.HybridBinarizer -> c.d.b.q.j:
     com.google.zxing.Binarizer createBinarizer(com.google.zxing.LuminanceSource) -> a
     com.google.zxing.common.BitMatrix getBlackMatrix() -> a
     void thresholdBlock(byte[],int,int,int,int,com.google.zxing.common.BitMatrix) -> a
-com.google.zxing.common.PerspectiveTransform -> c.d.b.q.k:
+com.google.zxing.common.PerspectiveTransform -> c.d.b.r.k:
     float a33 -> i
     float a32 -> h
     float a31 -> g
@@ -23694,16 +23703,16 @@ com.google.zxing.common.PerspectiveTransform -> c.d.b.q.k:
     com.google.zxing.common.PerspectiveTransform times(com.google.zxing.common.PerspectiveTransform) -> a
     void transformPoints(float[]) -> a
     com.google.zxing.common.PerspectiveTransform squareToQuadrilateral(float,float,float,float,float,float,float,float) -> b
-com.google.zxing.common.StringUtils -> c.d.b.q.l:
+com.google.zxing.common.StringUtils -> c.d.b.r.l:
     java.lang.String PLATFORM_DEFAULT_ENCODING -> a
     boolean ASSUME_SHIFT_JIS -> b
     java.lang.String guessEncoding(byte[],java.util.Map) -> a
-com.google.zxing.common.detector.MathUtils -> c.d.b.q.m.a:
+com.google.zxing.common.detector.MathUtils -> c.d.b.r.m.a:
     float distance(float,float,float,float) -> a
     float distance(int,int,int,int) -> a
     int round(float) -> a
     int sum(int[]) -> a
-com.google.zxing.common.detector.WhiteRectangleDetector -> c.d.b.q.m.b:
+com.google.zxing.common.detector.WhiteRectangleDetector -> c.d.b.r.m.b:
     int downInit -> f
     int upInit -> g
     int leftInit -> d
@@ -23715,7 +23724,7 @@ com.google.zxing.common.detector.WhiteRectangleDetector -> c.d.b.q.m.b:
     boolean containsBlackPoint(int,int,int,boolean) -> a
     com.google.zxing.ResultPoint[] detect() -> a
     com.google.zxing.ResultPoint getBlackPointOnSegment(float,float,float,float) -> a
-com.google.zxing.common.reedsolomon.GenericGF -> c.d.b.q.n.a:
+com.google.zxing.common.reedsolomon.GenericGF -> c.d.b.r.n.a:
     com.google.zxing.common.reedsolomon.GenericGF AZTEC_DATA_6 -> j
     com.google.zxing.common.reedsolomon.GenericGF AZTEC_DATA_10 -> i
     com.google.zxing.common.reedsolomon.GenericGF AZTEC_DATA_12 -> h
@@ -23741,7 +23750,7 @@ com.google.zxing.common.reedsolomon.GenericGF -> c.d.b.q.n.a:
     int getSize() -> c
     int log(int) -> c
     com.google.zxing.common.reedsolomon.GenericGFPoly getZero() -> d
-com.google.zxing.common.reedsolomon.GenericGFPoly -> c.d.b.q.n.b:
+com.google.zxing.common.reedsolomon.GenericGFPoly -> c.d.b.r.n.b:
     int[] coefficients -> b
     com.google.zxing.common.reedsolomon.GenericGF field -> a
     com.google.zxing.common.reedsolomon.GenericGFPoly addOrSubtract(com.google.zxing.common.reedsolomon.GenericGFPoly) -> a
@@ -23752,21 +23761,21 @@ com.google.zxing.common.reedsolomon.GenericGFPoly -> c.d.b.q.n.b:
     boolean isZero() -> b
     com.google.zxing.common.reedsolomon.GenericGFPoly multiply(com.google.zxing.common.reedsolomon.GenericGFPoly) -> b
     com.google.zxing.common.reedsolomon.GenericGFPoly multiply(int) -> c
-com.google.zxing.common.reedsolomon.ReedSolomonDecoder -> c.d.b.q.n.c:
+com.google.zxing.common.reedsolomon.ReedSolomonDecoder -> c.d.b.r.n.c:
     com.google.zxing.common.reedsolomon.GenericGF field -> a
     void decode(int[],int) -> a
     int[] findErrorLocations(com.google.zxing.common.reedsolomon.GenericGFPoly) -> a
     int[] findErrorMagnitudes(com.google.zxing.common.reedsolomon.GenericGFPoly,int[]) -> a
     com.google.zxing.common.reedsolomon.GenericGFPoly[] runEuclideanAlgorithm(com.google.zxing.common.reedsolomon.GenericGFPoly,com.google.zxing.common.reedsolomon.GenericGFPoly,int) -> a
-com.google.zxing.common.reedsolomon.ReedSolomonException -> c.d.b.q.n.d:
-com.google.zxing.datamatrix.DataMatrixReader -> c.d.b.r.a:
+com.google.zxing.common.reedsolomon.ReedSolomonException -> c.d.b.r.n.d:
+com.google.zxing.datamatrix.DataMatrixReader -> c.d.b.s.a:
     com.google.zxing.ResultPoint[] NO_POINTS -> b
     com.google.zxing.datamatrix.decoder.Decoder decoder -> a
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     com.google.zxing.common.BitMatrix extractPureBits(com.google.zxing.common.BitMatrix) -> a
     int moduleSize(int[],com.google.zxing.common.BitMatrix) -> a
     void reset() -> a
-com.google.zxing.datamatrix.decoder.BitMatrixParser -> c.d.b.r.b.a:
+com.google.zxing.datamatrix.decoder.BitMatrixParser -> c.d.b.s.b.a:
     com.google.zxing.common.BitMatrix mappingBitMatrix -> a
     com.google.zxing.common.BitMatrix readMappingMatrix -> b
     com.google.zxing.datamatrix.decoder.Version version -> c
@@ -23780,13 +23789,13 @@ com.google.zxing.datamatrix.decoder.BitMatrixParser -> c.d.b.r.b.a:
     com.google.zxing.datamatrix.decoder.Version readVersion(com.google.zxing.common.BitMatrix) -> b
     int readCorner3(int,int) -> c
     int readCorner4(int,int) -> d
-com.google.zxing.datamatrix.decoder.DataBlock -> c.d.b.r.b.b:
+com.google.zxing.datamatrix.decoder.DataBlock -> c.d.b.s.b.b:
     byte[] codewords -> b
     int numDataCodewords -> a
     byte[] getCodewords() -> a
     com.google.zxing.datamatrix.decoder.DataBlock[] getDataBlocks(byte[],com.google.zxing.datamatrix.decoder.Version) -> a
     int getNumDataCodewords() -> b
-com.google.zxing.datamatrix.decoder.DecodedBitStreamParser -> c.d.b.r.b.c:
+com.google.zxing.datamatrix.decoder.DecodedBitStreamParser -> c.d.b.s.b.c:
     char[] C40_BASIC_SET_CHARS -> a
     char[] C40_SHIFT2_SET_CHARS -> b
     char[] TEXT_BASIC_SET_CHARS -> c
@@ -23801,9 +23810,9 @@ com.google.zxing.datamatrix.decoder.DecodedBitStreamParser -> c.d.b.r.b.c:
     void decodeC40Segment(com.google.zxing.common.BitSource,java.lang.StringBuilder) -> b
     void decodeEdifactSegment(com.google.zxing.common.BitSource,java.lang.StringBuilder) -> c
     void decodeTextSegment(com.google.zxing.common.BitSource,java.lang.StringBuilder) -> d
-com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1 -> c.d.b.r.b.c$a:
+com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1 -> c.d.b.s.b.c$a:
     int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode -> a
-com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode -> c.d.b.r.b.c$b:
+com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode -> c.d.b.s.b.c$b:
     com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode EDIFACT_ENCODE -> g
     com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode BASE256_ENCODE -> h
     com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode[] $VALUES -> i
@@ -23812,11 +23821,11 @@ com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode -> c.d.b.r.b.c$b
     com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode C40_ENCODE -> d
     com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode TEXT_ENCODE -> e
     com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$Mode ANSIX12_ENCODE -> f
-com.google.zxing.datamatrix.decoder.Decoder -> c.d.b.r.b.d:
+com.google.zxing.datamatrix.decoder.Decoder -> c.d.b.s.b.d:
     com.google.zxing.common.reedsolomon.ReedSolomonDecoder rsDecoder -> a
     void correctErrors(byte[],int) -> a
     com.google.zxing.common.DecoderResult decode(com.google.zxing.common.BitMatrix) -> a
-com.google.zxing.datamatrix.decoder.Version -> c.d.b.r.b.e:
+com.google.zxing.datamatrix.decoder.Version -> c.d.b.s.b.e:
     com.google.zxing.datamatrix.decoder.Version$ECBlocks ecBlocks -> f
     int totalCodewords -> g
     int dataRegionSizeRows -> d
@@ -23834,18 +23843,18 @@ com.google.zxing.datamatrix.decoder.Version -> c.d.b.r.b.e:
     int getTotalCodewords() -> f
     int getVersionNumber() -> g
     com.google.zxing.datamatrix.decoder.Version[] buildVersions() -> h
-com.google.zxing.datamatrix.decoder.Version$1 -> c.d.b.r.b.e$a:
-com.google.zxing.datamatrix.decoder.Version$ECB -> c.d.b.r.b.e$b:
+com.google.zxing.datamatrix.decoder.Version$1 -> c.d.b.s.b.e$a:
+com.google.zxing.datamatrix.decoder.Version$ECB -> c.d.b.s.b.e$b:
     int dataCodewords -> b
     int count -> a
     int getCount() -> a
     int getDataCodewords() -> b
-com.google.zxing.datamatrix.decoder.Version$ECBlocks -> c.d.b.r.b.e$c:
+com.google.zxing.datamatrix.decoder.Version$ECBlocks -> c.d.b.s.b.e$c:
     com.google.zxing.datamatrix.decoder.Version$ECB[] ecBlocks -> b
     int ecCodewords -> a
     com.google.zxing.datamatrix.decoder.Version$ECB[] getECBlocks() -> a
     int getECCodewords() -> b
-com.google.zxing.datamatrix.detector.Detector -> c.d.b.r.c.a:
+com.google.zxing.datamatrix.detector.Detector -> c.d.b.s.c.a:
     com.google.zxing.common.detector.WhiteRectangleDetector rectangleDetector -> b
     com.google.zxing.common.BitMatrix image -> a
     com.google.zxing.ResultPoint correctTopRight(com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,int) -> a
@@ -23856,27 +23865,27 @@ com.google.zxing.datamatrix.detector.Detector -> c.d.b.r.c.a:
     boolean isValid(com.google.zxing.ResultPoint) -> a
     com.google.zxing.common.BitMatrix sampleGrid(com.google.zxing.common.BitMatrix,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,int,int) -> a
     com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitions transitionsBetween(com.google.zxing.ResultPoint,com.google.zxing.ResultPoint) -> b
-com.google.zxing.datamatrix.detector.Detector$1 -> c.d.b.r.c.a$a:
-com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitions -> c.d.b.r.c.a$b:
+com.google.zxing.datamatrix.detector.Detector$1 -> c.d.b.s.c.a$a:
+com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitions -> c.d.b.s.c.a$b:
     com.google.zxing.ResultPoint from -> a
     com.google.zxing.ResultPoint to -> b
     int transitions -> c
     com.google.zxing.ResultPoint getFrom() -> a
     com.google.zxing.ResultPoint getTo() -> b
     int getTransitions() -> c
-com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitionsComparator -> c.d.b.r.c.a$c:
+com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitionsComparator -> c.d.b.s.c.a$c:
     int compare(com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitions,com.google.zxing.datamatrix.detector.Detector$ResultPointsAndTransitions) -> a
-com.google.zxing.maxicode.MaxiCodeReader -> c.d.b.s.a:
+com.google.zxing.maxicode.MaxiCodeReader -> c.d.b.t.a:
     com.google.zxing.ResultPoint[] NO_POINTS -> b
     com.google.zxing.maxicode.decoder.Decoder decoder -> a
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     com.google.zxing.common.BitMatrix extractPureBits(com.google.zxing.common.BitMatrix) -> a
     void reset() -> a
-com.google.zxing.maxicode.decoder.BitMatrixParser -> c.d.b.s.b.a:
+com.google.zxing.maxicode.decoder.BitMatrixParser -> c.d.b.t.b.a:
     int[][] BITNR -> b
     com.google.zxing.common.BitMatrix bitMatrix -> a
     byte[] readCodewords() -> a
-com.google.zxing.maxicode.decoder.DecodedBitStreamParser -> c.d.b.s.b.b:
+com.google.zxing.maxicode.decoder.DecodedBitStreamParser -> c.d.b.t.b.b:
     java.lang.String[] SETS -> a
     com.google.zxing.common.DecoderResult decode(byte[],int) -> a
     int getBit(int,byte[]) -> a
@@ -23887,12 +23896,12 @@ com.google.zxing.maxicode.decoder.DecodedBitStreamParser -> c.d.b.s.b.b:
     int getPostCode2Length(byte[]) -> c
     java.lang.String getPostCode3(byte[]) -> d
     int getServiceClass(byte[]) -> e
-com.google.zxing.maxicode.decoder.Decoder -> c.d.b.s.b.c:
+com.google.zxing.maxicode.decoder.Decoder -> c.d.b.t.b.c:
     com.google.zxing.common.reedsolomon.ReedSolomonDecoder rsDecoder -> a
     void correctErrors(byte[],int,int,int,int) -> a
     com.google.zxing.common.DecoderResult decode(com.google.zxing.common.BitMatrix,java.util.Map) -> a
-com.google.zxing.multi.MultipleBarcodeReader -> c.d.b.t.a:
-com.google.zxing.oned.CodaBarReader -> c.d.b.u.a:
+com.google.zxing.multi.MultipleBarcodeReader -> c.d.b.u.a:
+com.google.zxing.oned.CodaBarReader -> c.d.b.v.a:
     char[] ALPHABET -> d
     int[] counters -> b
     char[] STARTEND_ENCODING -> f
@@ -23906,12 +23915,12 @@ com.google.zxing.oned.CodaBarReader -> c.d.b.u.a:
     int findStartPattern() -> b
     int toNarrowWidePattern(int) -> b
     void validatePattern(int) -> c
-com.google.zxing.oned.Code128Reader -> c.d.b.u.b:
+com.google.zxing.oned.Code128Reader -> c.d.b.v.b:
     int[][] CODE_PATTERNS -> a
     int decodeCode(com.google.zxing.common.BitArray,int[],int) -> a
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,java.util.Map) -> a
     int[] findStartPattern(com.google.zxing.common.BitArray) -> a
-com.google.zxing.oned.Code39Reader -> c.d.b.u.c:
+com.google.zxing.oned.Code39Reader -> c.d.b.v.c:
     int[] counters -> d
     int[] CHARACTER_ENCODINGS -> e
     int ASTERISK_ENCODING -> f
@@ -23923,7 +23932,7 @@ com.google.zxing.oned.Code39Reader -> c.d.b.u.c:
     int[] findAsteriskPattern(com.google.zxing.common.BitArray,int[]) -> a
     char patternToChar(int) -> a
     int toNarrowWidePattern(int[]) -> a
-com.google.zxing.oned.Code93Reader -> c.d.b.u.d:
+com.google.zxing.oned.Code93Reader -> c.d.b.v.d:
     char[] ALPHABET -> c
     int[] counters -> b
     int[] CHARACTER_ENCODINGS -> d
@@ -23936,23 +23945,23 @@ com.google.zxing.oned.Code93Reader -> c.d.b.u.d:
     char patternToChar(int) -> a
     int toPattern(int[]) -> a
     java.lang.String decodeExtended(java.lang.CharSequence) -> b
-com.google.zxing.oned.EAN13Reader -> c.d.b.u.e:
+com.google.zxing.oned.EAN13Reader -> c.d.b.v.e:
     int[] decodeMiddleCounters -> h
     int[] FIRST_DIGIT_ENCODINGS -> i
     int decodeMiddle(com.google.zxing.common.BitArray,int[],java.lang.StringBuilder) -> a
     void determineFirstDigit(java.lang.StringBuilder,int) -> a
     com.google.zxing.BarcodeFormat getBarcodeFormat() -> b
-com.google.zxing.oned.EAN8Reader -> c.d.b.u.f:
+com.google.zxing.oned.EAN8Reader -> c.d.b.v.f:
     int[] decodeMiddleCounters -> h
     int decodeMiddle(com.google.zxing.common.BitArray,int[],java.lang.StringBuilder) -> a
     com.google.zxing.BarcodeFormat getBarcodeFormat() -> b
-com.google.zxing.oned.EANManufacturerOrgSupport -> c.d.b.u.g:
+com.google.zxing.oned.EANManufacturerOrgSupport -> c.d.b.v.g:
     java.util.List countryIdentifiers -> b
     java.util.List ranges -> a
     void add(int[],java.lang.String) -> a
     void initIfNeeded() -> a
     java.lang.String lookupCountryIdentifier(java.lang.String) -> a
-com.google.zxing.oned.ITFReader -> c.d.b.u.h:
+com.google.zxing.oned.ITFReader -> c.d.b.v.h:
     int[] DEFAULT_ALLOWED_LENGTHS -> b
     int[] START_PATTERN -> c
     int[] END_PATTERN_REVERSED -> d
@@ -23966,15 +23975,15 @@ com.google.zxing.oned.ITFReader -> c.d.b.u.h:
     int[] decodeStart(com.google.zxing.common.BitArray) -> b
     int[] findGuardPattern(com.google.zxing.common.BitArray,int,int[]) -> c
     int skipWhiteSpace(com.google.zxing.common.BitArray) -> c
-com.google.zxing.oned.MultiFormatOneDReader -> c.d.b.u.i:
+com.google.zxing.oned.MultiFormatOneDReader -> c.d.b.v.i:
     com.google.zxing.oned.OneDReader[] readers -> a
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,java.util.Map) -> a
     void reset() -> a
-com.google.zxing.oned.MultiFormatUPCEANReader -> c.d.b.u.j:
+com.google.zxing.oned.MultiFormatUPCEANReader -> c.d.b.v.j:
     com.google.zxing.oned.UPCEANReader[] readers -> a
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,java.util.Map) -> a
     void reset() -> a
-com.google.zxing.oned.OneDReader -> c.d.b.u.k:
+com.google.zxing.oned.OneDReader -> c.d.b.v.k:
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,java.util.Map) -> a
     float patternMatchVariance(int[],int[],float) -> a
@@ -23982,7 +23991,7 @@ com.google.zxing.oned.OneDReader -> c.d.b.u.k:
     void reset() -> a
     com.google.zxing.Result doDecode(com.google.zxing.BinaryBitmap,java.util.Map) -> b
     void recordPatternInReverse(com.google.zxing.common.BitArray,int,int[]) -> b
-com.google.zxing.oned.UPCAReader -> c.d.b.u.l:
+com.google.zxing.oned.UPCAReader -> c.d.b.v.l:
     com.google.zxing.oned.UPCEANReader ean13Reader -> h
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     int decodeMiddle(com.google.zxing.common.BitArray,int[],java.lang.StringBuilder) -> a
@@ -23990,13 +23999,13 @@ com.google.zxing.oned.UPCAReader -> c.d.b.u.l:
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,int[],java.util.Map) -> a
     com.google.zxing.Result maybeReturnResult(com.google.zxing.Result) -> a
     com.google.zxing.BarcodeFormat getBarcodeFormat() -> b
-com.google.zxing.oned.UPCEANExtension2Support -> c.d.b.u.m:
+com.google.zxing.oned.UPCEANExtension2Support -> c.d.b.v.m:
     java.lang.StringBuilder decodeRowStringBuffer -> b
     int[] decodeMiddleCounters -> a
     int decodeMiddle(com.google.zxing.common.BitArray,int[],java.lang.StringBuilder) -> a
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,int[]) -> a
     java.util.Map parseExtensionString(java.lang.String) -> a
-com.google.zxing.oned.UPCEANExtension5Support -> c.d.b.u.n:
+com.google.zxing.oned.UPCEANExtension5Support -> c.d.b.v.n:
     int[] CHECK_DIGIT_ENCODINGS -> c
     java.lang.StringBuilder decodeRowStringBuffer -> b
     int[] decodeMiddleCounters -> a
@@ -24006,12 +24015,12 @@ com.google.zxing.oned.UPCEANExtension5Support -> c.d.b.u.n:
     int extensionChecksum(java.lang.CharSequence) -> a
     java.lang.String parseExtension5String(java.lang.String) -> a
     java.util.Map parseExtensionString(java.lang.String) -> b
-com.google.zxing.oned.UPCEANExtensionSupport -> c.d.b.u.o:
+com.google.zxing.oned.UPCEANExtensionSupport -> c.d.b.v.o:
     com.google.zxing.oned.UPCEANExtension2Support twoSupport -> a
     int[] EXTENSION_START_PATTERN -> c
     com.google.zxing.oned.UPCEANExtension5Support fiveSupport -> b
     com.google.zxing.Result decodeRow(int,com.google.zxing.common.BitArray,int) -> a
-com.google.zxing.oned.UPCEANReader -> c.d.b.u.p:
+com.google.zxing.oned.UPCEANReader -> c.d.b.v.p:
     com.google.zxing.oned.EANManufacturerOrgSupport eanManSupport -> c
     com.google.zxing.oned.UPCEANExtensionSupport extensionReader -> b
     int[] START_END_PATTERN -> d
@@ -24030,7 +24039,7 @@ com.google.zxing.oned.UPCEANReader -> c.d.b.u.p:
     int[] findGuardPattern(com.google.zxing.common.BitArray,int,boolean,int[],int[]) -> a
     int[] findStartGuardPattern(com.google.zxing.common.BitArray) -> a
     com.google.zxing.BarcodeFormat getBarcodeFormat() -> b
-com.google.zxing.oned.UPCEReader -> c.d.b.u.q:
+com.google.zxing.oned.UPCEReader -> c.d.b.v.q:
     int[] decodeMiddleCounters -> h
     int[] MIDDLE_END_PATTERN -> i
     int[][] NUMSYS_AND_CHECK_DIGIT_PATTERNS -> j
@@ -24040,7 +24049,7 @@ com.google.zxing.oned.UPCEReader -> c.d.b.u.q:
     void determineNumSysAndCheckDigit(java.lang.StringBuilder,int) -> a
     java.lang.String convertUPCEtoUPCA(java.lang.String) -> b
     com.google.zxing.BarcodeFormat getBarcodeFormat() -> b
-com.google.zxing.oned.rss.AbstractRSSReader -> c.d.b.u.r.a:
+com.google.zxing.oned.rss.AbstractRSSReader -> c.d.b.v.r.a:
     int[] evenCounts -> f
     int[] dataCharacterCounters -> b
     int[] oddCounts -> e
@@ -24057,25 +24066,25 @@ com.google.zxing.oned.rss.AbstractRSSReader -> c.d.b.u.r.a:
     float[] getEvenRoundingErrors() -> e
     int[] getOddCounts() -> f
     float[] getOddRoundingErrors() -> g
-com.google.zxing.oned.rss.DataCharacter -> c.d.b.u.r.b:
+com.google.zxing.oned.rss.DataCharacter -> c.d.b.v.r.b:
     int checksumPortion -> b
     int value -> a
     int getChecksumPortion() -> a
     int getValue() -> b
-com.google.zxing.oned.rss.FinderPattern -> c.d.b.u.r.c:
+com.google.zxing.oned.rss.FinderPattern -> c.d.b.v.r.c:
     com.google.zxing.ResultPoint[] resultPoints -> c
     int[] startEnd -> b
     int value -> a
     com.google.zxing.ResultPoint[] getResultPoints() -> a
     int[] getStartEnd() -> b
     int getValue() -> c
-com.google.zxing.oned.rss.Pair -> c.d.b.u.r.d:
+com.google.zxing.oned.rss.Pair -> c.d.b.v.r.d:
     com.google.zxing.oned.rss.FinderPattern finderPattern -> c
     int count -> d
     int getCount() -> c
     com.google.zxing.oned.rss.FinderPattern getFinderPattern() -> d
     void incrementCount() -> e
-com.google.zxing.oned.rss.RSS14Reader -> c.d.b.u.r.e:
+com.google.zxing.oned.rss.RSS14Reader -> c.d.b.v.r.e:
     int[] OUTSIDE_EVEN_TOTAL_SUBSET -> i
     int[][] FINDER_PATTERNS -> o
     int[] INSIDE_ODD_WIDEST -> n
@@ -24095,12 +24104,12 @@ com.google.zxing.oned.rss.RSS14Reader -> c.d.b.u.r.e:
     com.google.zxing.oned.rss.FinderPattern parseFoundFinderPattern(com.google.zxing.common.BitArray,int,boolean,int[]) -> a
     void reset() -> a
     com.google.zxing.Result constructResult(com.google.zxing.oned.rss.Pair,com.google.zxing.oned.rss.Pair) -> b
-com.google.zxing.oned.rss.RSSUtils -> c.d.b.u.r.f:
+com.google.zxing.oned.rss.RSSUtils -> c.d.b.v.r.f:
     int combins(int,int) -> a
     int getRSSvalue(int[],int,boolean) -> a
-com.google.zxing.oned.rss.expanded.BitArrayBuilder -> c.d.b.u.r.g.a:
+com.google.zxing.oned.rss.expanded.BitArrayBuilder -> c.d.b.v.r.g.a:
     com.google.zxing.common.BitArray buildBitArray(java.util.List) -> a
-com.google.zxing.oned.rss.expanded.ExpandedPair -> c.d.b.u.r.g.b:
+com.google.zxing.oned.rss.expanded.ExpandedPair -> c.d.b.v.r.g.b:
     com.google.zxing.oned.rss.DataCharacter leftChar -> a
     com.google.zxing.oned.rss.DataCharacter rightChar -> b
     com.google.zxing.oned.rss.FinderPattern finderPattern -> c
@@ -24110,14 +24119,14 @@ com.google.zxing.oned.rss.expanded.ExpandedPair -> c.d.b.u.r.g.b:
     com.google.zxing.oned.rss.DataCharacter getLeftChar() -> b
     com.google.zxing.oned.rss.DataCharacter getRightChar() -> c
     boolean mustBeLast() -> d
-com.google.zxing.oned.rss.expanded.ExpandedRow -> c.d.b.u.r.g.c:
+com.google.zxing.oned.rss.expanded.ExpandedRow -> c.d.b.v.r.g.c:
     java.util.List pairs -> a
     int rowNumber -> b
     boolean wasReversed -> c
     java.util.List getPairs() -> a
     boolean isEquivalent(java.util.List) -> a
     int getRowNumber() -> b
-com.google.zxing.oned.rss.expanded.RSSExpandedReader -> c.d.b.u.r.g.d:
+com.google.zxing.oned.rss.expanded.RSSExpandedReader -> c.d.b.v.r.g.d:
     int[][] FINDER_PATTERN_SEQUENCES -> p
     int[] startEnd -> i
     int[][] WEIGHTS -> o
@@ -24147,50 +24156,50 @@ com.google.zxing.oned.rss.expanded.RSSExpandedReader -> c.d.b.u.r.g.d:
     boolean isValidSequence(java.util.List) -> b
     void reverseCounters(int[]) -> b
     boolean checkChecksum() -> h
-com.google.zxing.oned.rss.expanded.decoders.AI013103decoder -> c.d.b.u.r.g.e.a:
+com.google.zxing.oned.rss.expanded.decoders.AI013103decoder -> c.d.b.v.r.g.e.a:
     int checkWeight(int) -> a
     void addWeightCode(java.lang.StringBuilder,int) -> b
-com.google.zxing.oned.rss.expanded.decoders.AI01320xDecoder -> c.d.b.u.r.g.e.b:
+com.google.zxing.oned.rss.expanded.decoders.AI01320xDecoder -> c.d.b.v.r.g.e.b:
     int checkWeight(int) -> a
     void addWeightCode(java.lang.StringBuilder,int) -> b
-com.google.zxing.oned.rss.expanded.decoders.AI01392xDecoder -> c.d.b.u.r.g.e.c:
+com.google.zxing.oned.rss.expanded.decoders.AI01392xDecoder -> c.d.b.v.r.g.e.c:
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.AI01393xDecoder -> c.d.b.u.r.g.e.d:
+com.google.zxing.oned.rss.expanded.decoders.AI01393xDecoder -> c.d.b.v.r.g.e.d:
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.AI013x0x1xDecoder -> c.d.b.u.r.g.e.e:
+com.google.zxing.oned.rss.expanded.decoders.AI013x0x1xDecoder -> c.d.b.v.r.g.e.e:
     java.lang.String dateCode -> c
     java.lang.String firstAIdigits -> d
     int checkWeight(int) -> a
     void addWeightCode(java.lang.StringBuilder,int) -> b
     void encodeCompressedDate(java.lang.StringBuilder,int) -> c
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.AI013x0xDecoder -> c.d.b.u.r.g.e.f:
+com.google.zxing.oned.rss.expanded.decoders.AI013x0xDecoder -> c.d.b.v.r.g.e.f:
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.AI01AndOtherAIs -> c.d.b.u.r.g.e.g:
+com.google.zxing.oned.rss.expanded.decoders.AI01AndOtherAIs -> c.d.b.v.r.g.e.g:
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.AI01decoder -> c.d.b.u.r.g.e.h:
+com.google.zxing.oned.rss.expanded.decoders.AI01decoder -> c.d.b.v.r.g.e.h:
     void encodeCompressedGtin(java.lang.StringBuilder,int) -> a
     void encodeCompressedGtinWithoutAI(java.lang.StringBuilder,int,int) -> a
     void appendCheckDigit(java.lang.StringBuilder,int) -> b
-com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder -> c.d.b.u.r.g.e.i:
+com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder -> c.d.b.v.r.g.e.i:
     int checkWeight(int) -> a
     void addWeightCode(java.lang.StringBuilder,int) -> b
     void encodeCompressedWeight(java.lang.StringBuilder,int,int) -> b
-com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder -> c.d.b.u.r.g.e.j:
+com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder -> c.d.b.v.r.g.e.j:
     com.google.zxing.oned.rss.expanded.decoders.GeneralAppIdDecoder generalDecoder -> b
     com.google.zxing.common.BitArray information -> a
     com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder createDecoder(com.google.zxing.common.BitArray) -> a
     com.google.zxing.oned.rss.expanded.decoders.GeneralAppIdDecoder getGeneralDecoder() -> a
     com.google.zxing.common.BitArray getInformation() -> b
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.AnyAIDecoder -> c.d.b.u.r.g.e.k:
+com.google.zxing.oned.rss.expanded.decoders.AnyAIDecoder -> c.d.b.v.r.g.e.k:
     java.lang.String parseInformation() -> c
-com.google.zxing.oned.rss.expanded.decoders.BlockParsedResult -> c.d.b.u.r.g.e.l:
+com.google.zxing.oned.rss.expanded.decoders.BlockParsedResult -> c.d.b.v.r.g.e.l:
     com.google.zxing.oned.rss.expanded.decoders.DecodedInformation decodedInformation -> a
     boolean finished -> b
     com.google.zxing.oned.rss.expanded.decoders.DecodedInformation getDecodedInformation() -> a
     boolean isFinished() -> b
-com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState -> c.d.b.u.r.g.e.m:
+com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState -> c.d.b.v.r.g.e.m:
     com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State encoding -> b
     int position -> a
     int getPosition() -> a
@@ -24201,33 +24210,33 @@ com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState -> c.d.b.u.r.g.e
     void setAlpha() -> d
     void setIsoIec646() -> e
     void setNumeric() -> f
-com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State -> c.d.b.u.r.g.e.m$a:
+com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State -> c.d.b.v.r.g.e.m$a:
     com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State ALPHA -> c
     com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State[] $VALUES -> e
     com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State NUMERIC -> b
     com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState$State ISO_IEC_646 -> d
-com.google.zxing.oned.rss.expanded.decoders.DecodedChar -> c.d.b.u.r.g.e.n:
+com.google.zxing.oned.rss.expanded.decoders.DecodedChar -> c.d.b.v.r.g.e.n:
     char value -> b
     char getValue() -> b
     boolean isFNC1() -> c
-com.google.zxing.oned.rss.expanded.decoders.DecodedInformation -> c.d.b.u.r.g.e.o:
+com.google.zxing.oned.rss.expanded.decoders.DecodedInformation -> c.d.b.v.r.g.e.o:
     java.lang.String newString -> b
     int remainingValue -> c
     boolean remaining -> d
     java.lang.String getNewString() -> b
     int getRemainingValue() -> c
     boolean isRemaining() -> d
-com.google.zxing.oned.rss.expanded.decoders.DecodedNumeric -> c.d.b.u.r.g.e.p:
+com.google.zxing.oned.rss.expanded.decoders.DecodedNumeric -> c.d.b.v.r.g.e.p:
     int firstDigit -> b
     int secondDigit -> c
     int getFirstDigit() -> b
     int getSecondDigit() -> c
     boolean isFirstDigitFNC1() -> d
     boolean isSecondDigitFNC1() -> e
-com.google.zxing.oned.rss.expanded.decoders.DecodedObject -> c.d.b.u.r.g.e.q:
+com.google.zxing.oned.rss.expanded.decoders.DecodedObject -> c.d.b.v.r.g.e.q:
     int newPosition -> a
     int getNewPosition() -> a
-com.google.zxing.oned.rss.expanded.decoders.FieldParser -> c.d.b.u.r.g.e.r:
+com.google.zxing.oned.rss.expanded.decoders.FieldParser -> c.d.b.v.r.g.e.r:
     java.lang.Object[][] TWO_DIGIT_DATA_LENGTH -> b
     java.lang.Object[][] THREE_DIGIT_DATA_LENGTH -> c
     java.lang.Object[][] THREE_DIGIT_PLUS_DIGIT_DATA_LENGTH -> d
@@ -24236,7 +24245,7 @@ com.google.zxing.oned.rss.expanded.decoders.FieldParser -> c.d.b.u.r.g.e.r:
     java.lang.String parseFieldsInGeneralPurpose(java.lang.String) -> a
     java.lang.String processFixedAI(int,int,java.lang.String) -> a
     java.lang.String processVariableAI(int,int,java.lang.String) -> b
-com.google.zxing.oned.rss.expanded.decoders.GeneralAppIdDecoder -> c.d.b.u.r.g.e.s:
+com.google.zxing.oned.rss.expanded.decoders.GeneralAppIdDecoder -> c.d.b.v.r.g.e.s:
     com.google.zxing.oned.rss.expanded.decoders.CurrentParsingState current -> b
     com.google.zxing.common.BitArray information -> a
     java.lang.StringBuilder buffer -> c
@@ -24257,13 +24266,13 @@ com.google.zxing.oned.rss.expanded.decoders.GeneralAppIdDecoder -> c.d.b.u.r.g.e
     boolean isStillAlpha(int) -> g
     boolean isStillIsoIec646(int) -> h
     boolean isStillNumeric(int) -> i
-com.google.zxing.pdf417.PDF417Common -> c.d.b.v.a:
+com.google.zxing.pdf417.PDF417Common -> c.d.b.w.a:
     int[] SYMBOL_TABLE -> b
     int[] CODEWORD_TABLE -> c
     int[] EMPTY_INT_ARRAY -> a
     int getCodeword(int) -> a
     int[] toIntArray(java.util.Collection) -> a
-com.google.zxing.pdf417.PDF417Reader -> c.d.b.v.b:
+com.google.zxing.pdf417.PDF417Reader -> c.d.b.w.b:
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     com.google.zxing.Result[] decode(com.google.zxing.BinaryBitmap,java.util.Map,boolean) -> a
     int getMaxCodewordWidth(com.google.zxing.ResultPoint[]) -> a
@@ -24271,12 +24280,12 @@ com.google.zxing.pdf417.PDF417Reader -> c.d.b.v.b:
     void reset() -> a
     int getMinCodewordWidth(com.google.zxing.ResultPoint[]) -> b
     int getMinWidth(com.google.zxing.ResultPoint,com.google.zxing.ResultPoint) -> b
-com.google.zxing.pdf417.PDF417ResultMetadata -> c.d.b.v.c:
+com.google.zxing.pdf417.PDF417ResultMetadata -> c.d.b.w.c:
     void setFileId(java.lang.String) -> a
     void setLastSegment(boolean) -> a
     void setOptionalData(int[]) -> a
     void setSegmentIndex(int) -> a
-com.google.zxing.pdf417.decoder.BarcodeMetadata -> c.d.b.v.d.a:
+com.google.zxing.pdf417.decoder.BarcodeMetadata -> c.d.b.w.d.a:
     int rowCountLowerPart -> d
     int rowCount -> e
     int errorCorrectionLevel -> b
@@ -24287,11 +24296,11 @@ com.google.zxing.pdf417.decoder.BarcodeMetadata -> c.d.b.v.d.a:
     int getRowCount() -> c
     int getRowCountLowerPart() -> d
     int getRowCountUpperPart() -> e
-com.google.zxing.pdf417.decoder.BarcodeValue -> c.d.b.v.d.b:
+com.google.zxing.pdf417.decoder.BarcodeValue -> c.d.b.w.d.b:
     java.util.Map values -> a
     int[] getValue() -> a
     void setValue(int) -> a
-com.google.zxing.pdf417.decoder.BoundingBox -> c.d.b.v.d.c:
+com.google.zxing.pdf417.decoder.BoundingBox -> c.d.b.w.d.c:
     int minY -> h
     int maxY -> i
     int minX -> f
@@ -24313,7 +24322,7 @@ com.google.zxing.pdf417.decoder.BoundingBox -> c.d.b.v.d.c:
     com.google.zxing.ResultPoint getTopLeft() -> g
     com.google.zxing.ResultPoint getTopRight() -> h
     void calculateMinMaxValues() -> i
-com.google.zxing.pdf417.decoder.Codeword -> c.d.b.v.d.d:
+com.google.zxing.pdf417.decoder.Codeword -> c.d.b.w.d.d:
     int value -> d
     int rowNumber -> e
     int endX -> b
@@ -24329,7 +24338,7 @@ com.google.zxing.pdf417.decoder.Codeword -> c.d.b.v.d.d:
     int getWidth() -> f
     boolean hasValidRowNumber() -> g
     void setRowNumberAsRowIndicatorColumn() -> h
-com.google.zxing.pdf417.decoder.DecodedBitStreamParser -> c.d.b.v.d.e:
+com.google.zxing.pdf417.decoder.DecodedBitStreamParser -> c.d.b.w.d.e:
     char[] PUNCT_CHARS -> a
     char[] MIXED_CHARS -> b
     java.nio.charset.Charset DEFAULT_ENCODING -> c
@@ -24341,9 +24350,9 @@ com.google.zxing.pdf417.decoder.DecodedBitStreamParser -> c.d.b.v.d.e:
     void decodeTextCompaction(int[],int[],int,java.lang.StringBuilder) -> a
     int numericCompaction(int[],int,java.lang.StringBuilder) -> a
     int textCompaction(int[],int,java.lang.StringBuilder) -> b
-com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1 -> c.d.b.v.d.e$a:
+com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1 -> c.d.b.w.d.e$a:
     int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode -> a
-com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode -> c.d.b.v.d.e$b:
+com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode -> c.d.b.w.d.e$b:
     com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode LOWER -> c
     com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode ALPHA -> b
     com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode[] $VALUES -> h
@@ -24351,7 +24360,7 @@ com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode -> c.d.b.v.d.e$b:
     com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode ALPHA_SHIFT -> f
     com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode PUNCT -> e
     com.google.zxing.pdf417.decoder.DecodedBitStreamParser$Mode MIXED -> d
-com.google.zxing.pdf417.decoder.DetectionResult -> c.d.b.v.d.f:
+com.google.zxing.pdf417.decoder.DetectionResult -> c.d.b.w.d.f:
     com.google.zxing.pdf417.decoder.DetectionResultColumn[] detectionResultColumns -> b
     com.google.zxing.pdf417.decoder.BarcodeMetadata barcodeMetadata -> a
     int barcodeColumnCount -> d
@@ -24373,7 +24382,7 @@ com.google.zxing.pdf417.decoder.DetectionResult -> c.d.b.v.d.f:
     void adjustRowNumbersFromBothRI() -> h
     int adjustRowNumbersFromLRI() -> i
     int adjustRowNumbersFromRRI() -> j
-com.google.zxing.pdf417.decoder.DetectionResultColumn -> c.d.b.v.d.g:
+com.google.zxing.pdf417.decoder.DetectionResultColumn -> c.d.b.w.d.g:
     com.google.zxing.pdf417.decoder.BoundingBox boundingBox -> a
     com.google.zxing.pdf417.decoder.Codeword[] codewords -> b
     com.google.zxing.pdf417.decoder.BoundingBox getBoundingBox() -> a
@@ -24382,7 +24391,7 @@ com.google.zxing.pdf417.decoder.DetectionResultColumn -> c.d.b.v.d.g:
     com.google.zxing.pdf417.decoder.Codeword getCodewordNearby(int) -> b
     com.google.zxing.pdf417.decoder.Codeword[] getCodewords() -> b
     int imageRowToCodewordIndex(int) -> c
-com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn -> c.d.b.v.d.h:
+com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn -> c.d.b.w.d.h:
     boolean isLeft -> c
     void adjustCompleteIndicatorColumnRowNumbers(com.google.zxing.pdf417.decoder.BarcodeMetadata) -> a
     void removeIncorrectCodewords(com.google.zxing.pdf417.decoder.Codeword[],com.google.zxing.pdf417.decoder.BarcodeMetadata) -> a
@@ -24391,14 +24400,14 @@ com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn -> c.d.b.v.d.h
     int[] getRowHeights() -> d
     boolean isLeft() -> e
     void setRowNumbers() -> f
-com.google.zxing.pdf417.decoder.PDF417CodewordDecoder -> c.d.b.v.d.i:
+com.google.zxing.pdf417.decoder.PDF417CodewordDecoder -> c.d.b.w.d.i:
     float[][] RATIOS_TABLE -> a
     int getBitValue(int[]) -> a
     int getClosestDecodedValue(int[]) -> b
     int getDecodedCodewordValue(int[]) -> c
     int getDecodedValue(int[]) -> d
     int[] sampleBitCounts(int[]) -> e
-com.google.zxing.pdf417.decoder.PDF417ScanningDecoder -> c.d.b.v.d.j:
+com.google.zxing.pdf417.decoder.PDF417ScanningDecoder -> c.d.b.w.d.j:
     com.google.zxing.pdf417.decoder.ec.ErrorCorrection errorCorrection -> a
     com.google.zxing.pdf417.decoder.BoundingBox adjustBoundingBox(com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn) -> a
     void adjustCodewordCount(com.google.zxing.pdf417.decoder.DetectionResult,com.google.zxing.pdf417.decoder.BarcodeValue[][]) -> a
@@ -24423,13 +24432,13 @@ com.google.zxing.pdf417.decoder.PDF417ScanningDecoder -> c.d.b.v.d.j:
     int[] getModuleBitCount(com.google.zxing.common.BitMatrix,int,int,boolean,int,int) -> b
     com.google.zxing.pdf417.decoder.DetectionResult merge(com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn,com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn) -> b
     int getNumberOfECCodeWords(int) -> c
-com.google.zxing.pdf417.decoder.ec.ErrorCorrection -> c.d.b.v.d.k.a:
+com.google.zxing.pdf417.decoder.ec.ErrorCorrection -> c.d.b.w.d.k.a:
     com.google.zxing.pdf417.decoder.ec.ModulusGF field -> a
     int decode(int[],int,int[]) -> a
     int[] findErrorLocations(com.google.zxing.pdf417.decoder.ec.ModulusPoly) -> a
     int[] findErrorMagnitudes(com.google.zxing.pdf417.decoder.ec.ModulusPoly,com.google.zxing.pdf417.decoder.ec.ModulusPoly,int[]) -> a
     com.google.zxing.pdf417.decoder.ec.ModulusPoly[] runEuclideanAlgorithm(com.google.zxing.pdf417.decoder.ec.ModulusPoly,com.google.zxing.pdf417.decoder.ec.ModulusPoly,int) -> a
-com.google.zxing.pdf417.decoder.ec.ModulusGF -> c.d.b.v.d.k.b:
+com.google.zxing.pdf417.decoder.ec.ModulusGF -> c.d.b.w.d.k.b:
     com.google.zxing.pdf417.decoder.ec.ModulusGF PDF417_GF -> f
     int[] logTable -> b
     int[] expTable -> a
@@ -24446,7 +24455,7 @@ com.google.zxing.pdf417.decoder.ec.ModulusGF -> c.d.b.v.d.k.b:
     int log(int) -> c
     int multiply(int,int) -> c
     int subtract(int,int) -> d
-com.google.zxing.pdf417.decoder.ec.ModulusPoly -> c.d.b.v.d.k.c:
+com.google.zxing.pdf417.decoder.ec.ModulusPoly -> c.d.b.w.d.k.c:
     int[] coefficients -> b
     com.google.zxing.pdf417.decoder.ec.ModulusGF field -> a
     com.google.zxing.pdf417.decoder.ec.ModulusPoly add(com.google.zxing.pdf417.decoder.ec.ModulusPoly) -> a
@@ -24459,7 +24468,7 @@ com.google.zxing.pdf417.decoder.ec.ModulusPoly -> c.d.b.v.d.k.c:
     com.google.zxing.pdf417.decoder.ec.ModulusPoly multiply(int) -> c
     com.google.zxing.pdf417.decoder.ec.ModulusPoly negative() -> c
     com.google.zxing.pdf417.decoder.ec.ModulusPoly subtract(com.google.zxing.pdf417.decoder.ec.ModulusPoly) -> c
-com.google.zxing.pdf417.detector.Detector -> c.d.b.v.e.a:
+com.google.zxing.pdf417.detector.Detector -> c.d.b.w.e.a:
     int[] INDEXES_STOP_PATTERN -> b
     int[] START_PATTERN -> c
     int[] STOP_PATTERN -> d
@@ -24471,19 +24480,19 @@ com.google.zxing.pdf417.detector.Detector -> c.d.b.v.e.a:
     com.google.zxing.ResultPoint[] findRowsWithPattern(com.google.zxing.common.BitMatrix,int,int,int,int,int[]) -> a
     com.google.zxing.ResultPoint[] findVertices(com.google.zxing.common.BitMatrix,int,int) -> a
     float patternMatchVariance(int[],int[],float) -> a
-com.google.zxing.pdf417.detector.PDF417DetectorResult -> c.d.b.v.e.b:
+com.google.zxing.pdf417.detector.PDF417DetectorResult -> c.d.b.w.e.b:
     java.util.List points -> b
     com.google.zxing.common.BitMatrix bits -> a
     com.google.zxing.common.BitMatrix getBits() -> a
     java.util.List getPoints() -> b
-com.google.zxing.qrcode.QRCodeReader -> c.d.b.w.a:
+com.google.zxing.qrcode.QRCodeReader -> c.d.b.x.a:
     com.google.zxing.ResultPoint[] NO_POINTS -> b
     com.google.zxing.qrcode.decoder.Decoder decoder -> a
     com.google.zxing.Result decode(com.google.zxing.BinaryBitmap,java.util.Map) -> a
     com.google.zxing.common.BitMatrix extractPureBits(com.google.zxing.common.BitMatrix) -> a
     float moduleSize(int[],com.google.zxing.common.BitMatrix) -> a
     void reset() -> a
-com.google.zxing.qrcode.decoder.BitMatrixParser -> c.d.b.w.b.a:
+com.google.zxing.qrcode.decoder.BitMatrixParser -> c.d.b.x.b.a:
     com.google.zxing.qrcode.decoder.FormatInformation parsedFormatInfo -> c
     com.google.zxing.common.BitMatrix bitMatrix -> a
     com.google.zxing.qrcode.decoder.Version parsedVersion -> b
@@ -24495,13 +24504,13 @@ com.google.zxing.qrcode.decoder.BitMatrixParser -> c.d.b.w.b.a:
     com.google.zxing.qrcode.decoder.FormatInformation readFormatInformation() -> c
     com.google.zxing.qrcode.decoder.Version readVersion() -> d
     void remask() -> e
-com.google.zxing.qrcode.decoder.DataBlock -> c.d.b.w.b.b:
+com.google.zxing.qrcode.decoder.DataBlock -> c.d.b.x.b.b:
     byte[] codewords -> b
     int numDataCodewords -> a
     byte[] getCodewords() -> a
     com.google.zxing.qrcode.decoder.DataBlock[] getDataBlocks(byte[],com.google.zxing.qrcode.decoder.Version,com.google.zxing.qrcode.decoder.ErrorCorrectionLevel) -> a
     int getNumDataCodewords() -> b
-com.google.zxing.qrcode.decoder.DataMask -> c.d.b.w.b.c:
+com.google.zxing.qrcode.decoder.DataMask -> c.d.b.x.b.c:
     com.google.zxing.qrcode.decoder.DataMask DATA_MASK_111 -> i
     com.google.zxing.qrcode.decoder.DataMask[] $VALUES -> j
     com.google.zxing.qrcode.decoder.DataMask DATA_MASK_101 -> g
@@ -24513,23 +24522,23 @@ com.google.zxing.qrcode.decoder.DataMask -> c.d.b.w.b.c:
     com.google.zxing.qrcode.decoder.DataMask DATA_MASK_000 -> b
     boolean isMasked(int,int) -> a
     void unmaskBitMatrix(com.google.zxing.common.BitMatrix,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$1 -> c.d.b.w.b.c$a:
+com.google.zxing.qrcode.decoder.DataMask$1 -> c.d.b.x.b.c$a:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$2 -> c.d.b.w.b.c$b:
+com.google.zxing.qrcode.decoder.DataMask$2 -> c.d.b.x.b.c$b:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$3 -> c.d.b.w.b.c$c:
+com.google.zxing.qrcode.decoder.DataMask$3 -> c.d.b.x.b.c$c:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$4 -> c.d.b.w.b.c$d:
+com.google.zxing.qrcode.decoder.DataMask$4 -> c.d.b.x.b.c$d:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$5 -> c.d.b.w.b.c$e:
+com.google.zxing.qrcode.decoder.DataMask$5 -> c.d.b.x.b.c$e:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$6 -> c.d.b.w.b.c$f:
+com.google.zxing.qrcode.decoder.DataMask$6 -> c.d.b.x.b.c$f:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$7 -> c.d.b.w.b.c$g:
+com.google.zxing.qrcode.decoder.DataMask$7 -> c.d.b.x.b.c$g:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DataMask$8 -> c.d.b.w.b.c$h:
+com.google.zxing.qrcode.decoder.DataMask$8 -> c.d.b.x.b.c$h:
     boolean isMasked(int,int) -> a
-com.google.zxing.qrcode.decoder.DecodedBitStreamParser -> c.d.b.w.b.d:
+com.google.zxing.qrcode.decoder.DecodedBitStreamParser -> c.d.b.x.b.d:
     char[] ALPHANUMERIC_CHARS -> a
     com.google.zxing.common.DecoderResult decode(byte[],com.google.zxing.qrcode.decoder.Version,com.google.zxing.qrcode.decoder.ErrorCorrectionLevel,java.util.Map) -> a
     void decodeAlphanumericSegment(com.google.zxing.common.BitSource,java.lang.StringBuilder,int,boolean) -> a
@@ -24539,12 +24548,12 @@ com.google.zxing.qrcode.decoder.DecodedBitStreamParser -> c.d.b.w.b.d:
     char toAlphaNumericChar(int) -> a
     void decodeKanjiSegment(com.google.zxing.common.BitSource,java.lang.StringBuilder,int) -> b
     void decodeNumericSegment(com.google.zxing.common.BitSource,java.lang.StringBuilder,int) -> c
-com.google.zxing.qrcode.decoder.Decoder -> c.d.b.w.b.e:
+com.google.zxing.qrcode.decoder.Decoder -> c.d.b.x.b.e:
     com.google.zxing.common.reedsolomon.ReedSolomonDecoder rsDecoder -> a
     void correctErrors(byte[],int) -> a
     com.google.zxing.common.DecoderResult decode(com.google.zxing.common.BitMatrix,java.util.Map) -> a
     com.google.zxing.common.DecoderResult decode(com.google.zxing.qrcode.decoder.BitMatrixParser,java.util.Map) -> a
-com.google.zxing.qrcode.decoder.ErrorCorrectionLevel -> c.d.b.w.b.f:
+com.google.zxing.qrcode.decoder.ErrorCorrectionLevel -> c.d.b.x.b.f:
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel M -> c
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel Q -> d
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel[] $VALUES -> g
@@ -24552,7 +24561,7 @@ com.google.zxing.qrcode.decoder.ErrorCorrectionLevel -> c.d.b.w.b.f:
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel[] FOR_BITS -> f
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel L -> b
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel forBits(int) -> f
-com.google.zxing.qrcode.decoder.FormatInformation -> c.d.b.w.b.g:
+com.google.zxing.qrcode.decoder.FormatInformation -> c.d.b.x.b.g:
     int[][] FORMAT_INFO_DECODE_LOOKUP -> c
     byte dataMask -> b
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel errorCorrectionLevel -> a
@@ -24561,7 +24570,7 @@ com.google.zxing.qrcode.decoder.FormatInformation -> c.d.b.w.b.g:
     com.google.zxing.qrcode.decoder.FormatInformation doDecodeFormatInformation(int,int) -> b
     com.google.zxing.qrcode.decoder.ErrorCorrectionLevel getErrorCorrectionLevel() -> b
     int numBitsDiffering(int,int) -> c
-com.google.zxing.qrcode.decoder.Mode -> c.d.b.w.b.h:
+com.google.zxing.qrcode.decoder.Mode -> c.d.b.x.b.h:
     com.google.zxing.qrcode.decoder.Mode TERMINATOR -> c
     int[] characterCountBitsForVersions -> b
     com.google.zxing.qrcode.decoder.Mode[] $VALUES -> m
@@ -24576,10 +24585,10 @@ com.google.zxing.qrcode.decoder.Mode -> c.d.b.w.b.h:
     com.google.zxing.qrcode.decoder.Mode NUMERIC -> d
     int getCharacterCountBits(com.google.zxing.qrcode.decoder.Version) -> a
     com.google.zxing.qrcode.decoder.Mode forBits(int) -> f
-com.google.zxing.qrcode.decoder.QRCodeDecoderMetaData -> c.d.b.w.b.i:
+com.google.zxing.qrcode.decoder.QRCodeDecoderMetaData -> c.d.b.x.b.i:
     boolean mirrored -> a
     void applyMirroredCorrection(com.google.zxing.ResultPoint[]) -> a
-com.google.zxing.qrcode.decoder.Version -> c.d.b.w.b.j:
+com.google.zxing.qrcode.decoder.Version -> c.d.b.x.b.j:
     int[] alignmentPatternCenters -> b
     int[] VERSION_DECODE_INFO -> e
     com.google.zxing.qrcode.decoder.Version$ECBlocks[] ecBlocks -> c
@@ -24596,21 +24605,21 @@ com.google.zxing.qrcode.decoder.Version -> c.d.b.w.b.j:
     int getTotalCodewords() -> d
     int getVersionNumber() -> e
     com.google.zxing.qrcode.decoder.Version[] buildVersions() -> f
-com.google.zxing.qrcode.decoder.Version$ECB -> c.d.b.w.b.j$a:
+com.google.zxing.qrcode.decoder.Version$ECB -> c.d.b.x.b.j$a:
     int dataCodewords -> b
     int count -> a
     int getCount() -> a
     int getDataCodewords() -> b
-com.google.zxing.qrcode.decoder.Version$ECBlocks -> c.d.b.w.b.j$b:
+com.google.zxing.qrcode.decoder.Version$ECBlocks -> c.d.b.x.b.j$b:
     com.google.zxing.qrcode.decoder.Version$ECB[] ecBlocks -> b
     int ecCodewordsPerBlock -> a
     com.google.zxing.qrcode.decoder.Version$ECB[] getECBlocks() -> a
     int getECCodewordsPerBlock() -> b
-com.google.zxing.qrcode.detector.AlignmentPattern -> c.d.b.w.c.a:
+com.google.zxing.qrcode.detector.AlignmentPattern -> c.d.b.x.c.a:
     float estimatedModuleSize -> c
     boolean aboutEquals(float,float,float) -> a
     com.google.zxing.qrcode.detector.AlignmentPattern combineEstimate(float,float,float) -> b
-com.google.zxing.qrcode.detector.AlignmentPatternFinder -> c.d.b.w.c.b:
+com.google.zxing.qrcode.detector.AlignmentPatternFinder -> c.d.b.x.c.b:
     java.util.List possibleCenters -> b
     int[] crossCheckStateCount -> h
     float moduleSize -> g
@@ -24625,7 +24634,7 @@ com.google.zxing.qrcode.detector.AlignmentPatternFinder -> c.d.b.w.c.b:
     com.google.zxing.qrcode.detector.AlignmentPattern find() -> a
     boolean foundPatternCross(int[]) -> a
     com.google.zxing.qrcode.detector.AlignmentPattern handlePossibleCenter(int[],int,int) -> a
-com.google.zxing.qrcode.detector.Detector -> c.d.b.w.c.c:
+com.google.zxing.qrcode.detector.Detector -> c.d.b.x.c.c:
     com.google.zxing.ResultPointCallback resultPointCallback -> b
     com.google.zxing.common.BitMatrix image -> a
     float calculateModuleSize(com.google.zxing.ResultPoint,com.google.zxing.ResultPoint,com.google.zxing.ResultPoint) -> a
@@ -24638,14 +24647,14 @@ com.google.zxing.qrcode.detector.Detector -> c.d.b.w.c.c:
     com.google.zxing.common.BitMatrix sampleGrid(com.google.zxing.common.BitMatrix,com.google.zxing.common.PerspectiveTransform,int) -> a
     float sizeOfBlackWhiteBlackRun(int,int,int,int) -> a
     float sizeOfBlackWhiteBlackRunBothWays(int,int,int,int) -> b
-com.google.zxing.qrcode.detector.FinderPattern -> c.d.b.w.c.d:
+com.google.zxing.qrcode.detector.FinderPattern -> c.d.b.x.c.d:
     float estimatedModuleSize -> c
     int count -> d
     boolean aboutEquals(float,float,float) -> a
     com.google.zxing.qrcode.detector.FinderPattern combineEstimate(float,float,float) -> b
     int getCount() -> c
     float getEstimatedModuleSize() -> d
-com.google.zxing.qrcode.detector.FinderPatternFinder -> c.d.b.w.c.e:
+com.google.zxing.qrcode.detector.FinderPatternFinder -> c.d.b.x.c.e:
     java.util.List possibleCenters -> b
     com.google.zxing.ResultPointCallback resultPointCallback -> e
     int[] crossCheckStateCount -> d
@@ -24662,14 +24671,14 @@ com.google.zxing.qrcode.detector.FinderPatternFinder -> c.d.b.w.c.e:
     float crossCheckVertical(int,int,int,int) -> c
     boolean haveMultiplyConfirmedCenters() -> c
     com.google.zxing.qrcode.detector.FinderPattern[] selectBestPatterns() -> d
-com.google.zxing.qrcode.detector.FinderPatternFinder$1 -> c.d.b.w.c.e$a:
-com.google.zxing.qrcode.detector.FinderPatternFinder$CenterComparator -> c.d.b.w.c.e$b:
+com.google.zxing.qrcode.detector.FinderPatternFinder$1 -> c.d.b.x.c.e$a:
+com.google.zxing.qrcode.detector.FinderPatternFinder$CenterComparator -> c.d.b.x.c.e$b:
     float average -> b
     int compare(com.google.zxing.qrcode.detector.FinderPattern,com.google.zxing.qrcode.detector.FinderPattern) -> a
-com.google.zxing.qrcode.detector.FinderPatternFinder$FurthestFromAverageComparator -> c.d.b.w.c.e$c:
+com.google.zxing.qrcode.detector.FinderPatternFinder$FurthestFromAverageComparator -> c.d.b.x.c.e$c:
     float average -> b
     int compare(com.google.zxing.qrcode.detector.FinderPattern,com.google.zxing.qrcode.detector.FinderPattern) -> a
-com.google.zxing.qrcode.detector.FinderPatternInfo -> c.d.b.w.c.f:
+com.google.zxing.qrcode.detector.FinderPatternInfo -> c.d.b.x.c.f:
     com.google.zxing.qrcode.detector.FinderPattern topRight -> c
     com.google.zxing.qrcode.detector.FinderPattern topLeft -> b
     com.google.zxing.qrcode.detector.FinderPattern bottomLeft -> a
@@ -24741,6 +24750,52 @@ com.reactnativecommunity.asyncstorage.ReactDatabaseSupplier -> com.reactnativeco
     android.database.sqlite.SQLiteDatabase get() -> d
     void closeDatabase() -> q
     boolean deleteDatabase() -> r
+com.safaeean.barcodescanner.BarcodeScannerPackage -> com.safaeean.barcodescanner.a:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+com.safaeean.barcodescanner.BarcodeScannerView -> com.safaeean.barcodescanner.b:
+    com.safaeean.barcodescanner.CameraPreview mPreview -> b
+    com.google.zxing.MultiFormatReader mMultiFormatReader -> c
+    void onPause() -> a
+    void onResume() -> b
+    void stopCamera() -> c
+com.safaeean.barcodescanner.CameraManager -> com.safaeean.barcodescanner.c:
+    android.hardware.Camera mCamera -> b
+    int mCameraId -> a
+    android.hardware.Camera getCamera(java.lang.String) -> a
+    android.hardware.Camera getCameraInstance() -> a
+    android.hardware.Camera getCameraInstance(int) -> a
+    boolean isFlashSupported(android.hardware.Camera) -> a
+    android.hardware.Camera getCameraInstance(java.lang.String) -> b
+    void releaseCamera() -> b
+com.safaeean.barcodescanner.CameraPreview -> com.safaeean.barcodescanner.d:
+    android.os.Handler mAutoFocusHandler -> f
+    android.hardware.Camera$PreviewCallback mPreviewCallback -> e
+    boolean mAutoFocus -> i
+    com.safaeean.barcodescanner.CameraManager mCameraManager -> b
+    android.hardware.Camera mCamera -> c
+    boolean mSurfaceCreated -> g
+    boolean mPreviewing -> h
+    java.lang.Runnable doAutoFocus -> j
+    java.lang.String mCameraType -> d
+    android.hardware.Camera$AutoFocusCallback autoFocusCB -> k
+    android.hardware.Camera access$000(com.safaeean.barcodescanner.CameraPreview) -> a
+    void safeAutoFocus() -> a
+    boolean access$100(com.safaeean.barcodescanner.CameraPreview) -> b
+    void startCamera() -> b
+    boolean access$200(com.safaeean.barcodescanner.CameraPreview) -> c
+    void startCameraPreview() -> c
+    boolean access$300(com.safaeean.barcodescanner.CameraPreview) -> d
+    void stopCamera() -> d
+    void access$400(com.safaeean.barcodescanner.CameraPreview) -> e
+    void stopCameraPreview() -> e
+    void scheduleAutoFocus() -> f
+com.safaeean.barcodescanner.CameraPreview$1 -> com.safaeean.barcodescanner.d$a:
+    com.safaeean.barcodescanner.CameraPreview this$0 -> b
+com.safaeean.barcodescanner.CameraPreview$2 -> com.safaeean.barcodescanner.d$b:
+    com.safaeean.barcodescanner.CameraPreview this$0 -> a
+com.safaeean.barcodescanner.DisplayUtils -> com.safaeean.barcodescanner.e:
+    int getScreenOrientation(android.content.Context) -> a
 com.swmansion.gesturehandler.FlingGestureHandler -> c.e.a.a:
     float mStartY -> G
     float mStartX -> F

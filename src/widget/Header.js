@@ -167,6 +167,7 @@ export default class HeaderWidget extends React.Component {
         })
         .catch(function (error) {
           alert('Lütfen internet bağlantınızı kontrol ediniz.');
+          this.LoadingShowHide(false);
           // alert(JSON.stringify(error));
           // if (error.response) {
           //   console.log(error.response.data);
@@ -382,7 +383,7 @@ export default class HeaderWidget extends React.Component {
                   returnKeyType="next"
                   onSubmitEditing={(event) => this.setSearch()}
                   placeholderTextColor="#ccc"
-                  placeholder="Arama"
+                  placeholder="Barkod minimum 6 karakter"
                 />
               )}
             </Item>

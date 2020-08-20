@@ -23,6 +23,8 @@ import com.github.kevinejohn.keyevent.KeyEventPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
+// react-native-scan-barcode
+import com.safaeean.barcodescanner.BarcodeScannerPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
 
@@ -76,6 +78,7 @@ public class PackageList {
       new KeyEventPackage(),
       new LinearGradientPackage(),
       new ReanimatedPackage(),
+      new BarcodeScannerPackage(),
       new RNScreensPackage()
     ));
   }

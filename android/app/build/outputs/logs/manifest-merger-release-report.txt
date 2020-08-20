@@ -10,6 +10,7 @@ MERGED from [:react-native-gesture-handler] C:\Users\DELL\Desktop\React\NextProj
 MERGED from [:react-native-camera-kit] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-camera-kit\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-community_async-storage] C:\Users\DELL\Desktop\React\NextProject\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-keyevent] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-keyevent\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-20:12
 MERGED from [com.facebook.react:react-native:0.62.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\5dc8dc6ad6f0a4a34ee1778644910d0f\jetified-react-native-0.62.2\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\055a171d10c43231a2795117ecd4c3fd\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\1ed26cdc1f47a6754ce1546799dd43a1\android-jsc-r245459\AndroidManifest.xml:2:1-11:12
@@ -146,6 +147,8 @@ MERGED from [:react-native-community_async-storage] C:\Users\DELL\Desktop\React\
 MERGED from [:react-native-community_async-storage] C:\Users\DELL\Desktop\React\NextProject\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-keyevent] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-keyevent\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-keyevent] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-keyevent\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.62.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\5dc8dc6ad6f0a4a34ee1778644910d0f\jetified-react-native-0.62.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.62.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\5dc8dc6ad6f0a4a34ee1778644910d0f\jetified-react-native-0.62.2\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\055a171d10c43231a2795117ecd4c3fd\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -240,6 +243,8 @@ INJECTED from C:\Users\DELL\Desktop\React\NextProject\android\app\src\main\Andro
 		INJECTED from C:\Users\DELL\Desktop\React\NextProject\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.CAMERA
 ADDED from [:react-native-camera-kit] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-camera-kit\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-65
+MERGED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-65
+MERGED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-65
 	android:name
 		ADDED from [:react-native-camera-kit] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-camera-kit\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:22-62
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
@@ -250,3 +255,15 @@ uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from [:react-native-camera-kit] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-camera-kit\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-81
 	android:name
 		ADDED from [:react-native-camera-kit] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-camera-kit\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:22-78
+uses-feature#android.hardware.camera
+ADDED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-15:36
+	android:required
+		ADDED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:15:9-33
+	android:name
+		ADDED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:14:9-47
+uses-feature#android.hardware.camera.front
+ADDED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:16:5-18:36
+	android:required
+		ADDED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:18:9-33
+	android:name
+		ADDED from [:react-native-scan-barcode] C:\Users\DELL\Desktop\React\NextProject\node_modules\react-native-scan-barcode\android\build\intermediates\library_manifest\release\AndroidManifest.xml:17:9-53

@@ -18,7 +18,7 @@ import {
   Right,
   View,
 } from 'native-base';
-import {StyleSheet, ActivityIndicator, Modal} from 'react-native';
+import {StyleSheet, ActivityIndicator, Modal, Platform} from 'react-native';
 
 import {Actions} from 'react-native-router-flux';
 import HeaderWidget from '../widget/Header';
@@ -149,7 +149,8 @@ export default class SearchList extends Component {
                         });
                       }}>
                       <List>
-                        <ListItem >
+                        <ListItem
+                          style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                           <Left style={{flex: 0.6}}>
                             <Text note numberOfLines={1}>
                               Ürün Fiyatı
@@ -163,7 +164,8 @@ export default class SearchList extends Component {
                           </Right>
                         </ListItem>
 
-                        <ListItem >
+                        <ListItem
+                          style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                           <Left style={{flex: 0.6}}>
                             <Text note numberOfLines={1}>
                               Ürün Kodu
@@ -177,7 +179,8 @@ export default class SearchList extends Component {
                           </Right>
                         </ListItem>
 
-                        <ListItem >
+                        <ListItem
+                          style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                           <Left style={{flex: 0.6}}>
                             <Text note>Malzeme Kodu</Text>
                           </Left>
@@ -189,7 +192,8 @@ export default class SearchList extends Component {
                           </Right>
                         </ListItem>
 
-                        <ListItem >
+                        <ListItem
+                          style={{height: Platform.OS === 'ios' ? 40 : 40}}>
                           <Left style={{flex: 0.6}}>
                             <Text note>Gelecek Miktar</Text>
                           </Left>
@@ -202,7 +206,10 @@ export default class SearchList extends Component {
                         </ListItem>
 
                         <ListItem
-                          style={{ borderBottomColor: 'white'}}>
+                          style={{
+                            borderBottomColor: 'white',
+                            height: Platform.OS === 'ios' ? 40 : 40,
+                          }}>
                           <Left style={{flex: 0.6}}>
                             <Text note numberOfLines={1}>
                               Stok Miktarı

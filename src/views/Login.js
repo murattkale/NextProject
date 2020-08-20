@@ -3,11 +3,13 @@ import {
   View,
   Dimensions,
   Image,
-  StyleSheet,
   Linking,
   Platform,
   TouchableOpacity,
   TextInput,
+  StyleSheet,
+  ActivityIndicator,
+  Modal,
 } from 'react-native';
 
 import {
@@ -40,6 +42,8 @@ import Storage from '../components/Storage';
 
 import LinearGradient from 'react-native-linear-gradient';
 
+// import NetInfo from '@react-native-community/netinfo';
+
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +56,40 @@ export default class Login extends React.Component {
     // Subscribe
   }
 
+  // CheckConnectivity() {
+  //   // For Android devices
+  //   if (Platform.OS === 'android') {
+  //     NetInfo.isConnected.fetch().then((isConnected) => {
+  //       if (isConnected) {
+  //         alert('You are online!');
+  //       } else {
+  //         alert('You are offline!');
+  //       }
+  //     });
+  //   } else {
+  //     // For iOS devices
+  //     NetInfo.isConnected.addEventListener(
+  //       'connectionChange',
+  //       this.handleFirstConnectivityChange,
+  //     );
+  //   }
+  // }
+
+  // handleFirstConnectivityChange = (isConnected) => {
+  //   NetInfo.isConnected.removeEventListener(
+  //     'connectionChange',
+  //     this.handleFirstConnectivityChange,
+  //   );
+
+  //   if (isConnected === false) {
+  //     alert('You are offline!');
+  //   } else {
+  //     alert('You are online!');
+  //   }
+  // };
+
   async componentDidMount() {
+    // this.CheckConnectivity();
     var user = await Storage.get('user');
     if (user && user.Id > 0) {
       this.setState({isLogined: true});
@@ -74,6 +111,7 @@ export default class Login extends React.Component {
   };
 
   async Login() {
+    // this.CheckConnectivity();
     if (this.state.UserName == '' || this.state.Password == '') {
       alert('Lütfen kullanıcı adınızı ve şifrenizi giriniz.');
       return;
@@ -89,10 +127,9 @@ export default class Login extends React.Component {
 
     console.log(api);
 
-    var getAxios = await axios.get(api, {timeout: 0.1}).catch(function (error) {
+    var getAxios = await axios.get(api).catch(function (error) {
       alert('Lütfen internet bağlantınızı kontrol ediniz.');
       this.props.LoadingShowHide(false);
-      return;
     });
     this.props.LoadingShowHide(false);
 
@@ -132,160 +169,162 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <LinearGradient
-        colors={['#5e72eb', '#120c6e']}
-        style={styles.linearGradient}>
-        <Content style={{padding: '3%'}}>
-          <Card>
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Image
+      <>
+        <LinearGradient
+          colors={['#5e72eb', '#120c6e']}
+          style={styles.linearGradient}>
+          <Content style={{padding: '3%'}}>
+            <Card>
+              <View
                 style={{
-                  resizeMode: 'contain',
-                  height: 200,
-                  flex: 1,
-                }}
-                source={logo}
-              />
-            </View>
-
-            <CardItem>
-              <Body>
-                <Text
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Image
                   style={{
-                    textAlign: 'left',
-                    fontSize: 37,
-                  }}>
-                  Giriş Yap
-                </Text>
+                    resizeMode: 'contain',
+                    height: 200,
+                    flex: 1,
+                  }}
+                  source={logo}
+                />
+              </View>
 
-                <H3
-                  note
-                  style={{
-                    fontSize: 18,
-                    textAlign: 'left',
-                    marginBottom: 10,
-                    marginTop: 10,
-                    color: '#ccc',
-                  }}>
-                  Giriş yapmak için Zırhlıoğlu emailin ve daha önce emaline
-                  gönderdiğimiz şifreyi kullan.
-                </H3>
-                <Item regular style={{marginBottom: 5, marginTop: 5}}>
-                  <Input
-                    placeholder="Email"
-                    placeholderTextColor="#000"
-                    value={this.state.UserName}
-                    onChangeText={this.changeUsername.bind(this)}
-                    returnKeyType="next"
-                    onSubmitEditing={() => {
-                      this.secondTextInput._root.focus();
-                    }}
-                    blurOnSubmit={false}
-                  />
-                </Item>
-                <Item regular style={{marginBottom: 5}}>
-                  <Input
-                    secureTextEntry={true}
-                    placeholder="Şifre"
-                    placeholderTextColor="#000"
-                    value={this.state.Password}
-                    onChangeText={this.changePassword.bind(this)}
-                    returnKeyType="next"
-                    onSubmitEditing={(event) => this.Login()}
-                    ref={(input) => {
-                      this.secondTextInput = input;
-                    }}
-                  />
-                </Item>
-                <ListItem>
-                  <View style={{borderBottomColor: 'white'}}>
-                    <Text
-                      style={{
-                        textDecorationLine: 'underline',
-                        color: 'blue',
-                        position: 'absolute',
-                        right: 0,
-                        bottom: -5,
+              <CardItem>
+                <Body>
+                  <Text
+                    style={{
+                      textAlign: 'left',
+                      fontSize: 37,
+                    }}>
+                    Giriş Yap
+                  </Text>
+
+                  <H3
+                    note
+                    style={{
+                      fontSize: 18,
+                      textAlign: 'left',
+                      marginBottom: 10,
+                      marginTop: 10,
+                      color: '#ccc',
+                    }}>
+                    Giriş yapmak için Zırhlıoğlu emailin ve daha önce emaline
+                    gönderdiğimiz şifreyi kullan.
+                  </H3>
+                  <Item regular style={{marginBottom: 5, marginTop: 5}}>
+                    <Input
+                      placeholder="Email"
+                      placeholderTextColor="#000"
+                      value={this.state.UserName}
+                      onChangeText={this.changeUsername.bind(this)}
+                      returnKeyType="next"
+                      onSubmitEditing={() => {
+                        this.secondTextInput._root.focus();
                       }}
-                      onPress={() => console.log('Şifremi unuttum')}>
-                      Şifremi unuttum
-                    </Text>
-                  </View>
-                </ListItem>
-
-                <Button
-                  full
-                  onPress={this.Login.bind(this)}
-                  style={{
-                    marginTop: 10,
-                    marginBottom: 0,
-                    backgroundColor: color.ButtonColor,
-                    height: 60,
-                    borderRadius: 5,
-                  }}>
-                  <Text style={{color: 'white'}}>Giriş Yap</Text>
-                </Button>
-
-                <Card
-                  style={{
-                    borderRadius: 2,
-                    borderColor: 'blue',
-                    textAlign: 'left',
-                    marginTop: 20,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <CardItem>
-                    <Left style={{flex: 0.3}}>
-                      <TouchableOpacity
-                        style={{flexDirection: 'row'}}
-                        onPress={() => {
-                          this.dialCall(4447918);
-                        }}>
-                        <Image
-                          style={{
-                            resizeMode: 'contain',
-                            height: 50,
-                            flex: 1,
-                          }}
-                          source={phoneImage}
-                        />
-                      </TouchableOpacity>
-                    </Left>
-
-                    <Right style={{flex: 0.7}}>
+                      blurOnSubmit={false}
+                    />
+                  </Item>
+                  <Item regular style={{marginBottom: 5}}>
+                    <Input
+                      secureTextEntry={true}
+                      placeholder="Şifre"
+                      placeholderTextColor="#000"
+                      value={this.state.Password}
+                      onChangeText={this.changePassword.bind(this)}
+                      returnKeyType="next"
+                      onSubmitEditing={(event) => this.Login()}
+                      ref={(input) => {
+                        this.secondTextInput = input;
+                      }}
+                    />
+                  </Item>
+                  <ListItem>
+                    <View style={{borderBottomColor: 'white'}}>
                       <Text
-                        onPress={() => {
-                          console.log('tıkla');
+                        style={{
+                          textDecorationLine: 'underline',
+                          color: 'blue',
+                          position: 'absolute',
+                          right: 0,
+                          bottom: -5,
                         }}
-                        style={{
-                          flex: 1,
-                          color: '#889099',
-                          textAlign: 'left',
-                        }}>
-                        Yardıma mı ihtiyacınız var?
+                        onPress={() => console.log('Şifremi unuttum')}>
+                        Şifremi unuttum
                       </Text>
+                    </View>
+                  </ListItem>
 
-                      <Text
-                        style={{
-                          flex: 1,
-                          marginTop: 10,
-                          textAlign: 'left',
-                        }}>
-                        Bizimle iletişime geç.
-                      </Text>
-                    </Right>
-                  </CardItem>
-                </Card>
-              </Body>
-            </CardItem>
-          </Card>
-        </Content>
-      </LinearGradient>
+                  <Button
+                    full
+                    onPress={this.Login.bind(this)}
+                    style={{
+                      marginTop: 10,
+                      marginBottom: 0,
+                      backgroundColor: color.ButtonColor,
+                      height: 60,
+                      borderRadius: 5,
+                    }}>
+                    <Text style={{color: 'white'}}>Giriş Yap</Text>
+                  </Button>
+
+                  <Card
+                    style={{
+                      borderRadius: 2,
+                      borderColor: 'blue',
+                      textAlign: 'left',
+                      marginTop: 20,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <CardItem>
+                      <Left style={{flex: 0.3}}>
+                        <TouchableOpacity
+                          style={{flexDirection: 'row'}}
+                          onPress={() => {
+                            this.dialCall(4447918);
+                          }}>
+                          <Image
+                            style={{
+                              resizeMode: 'contain',
+                              height: 50,
+                              flex: 1,
+                            }}
+                            source={phoneImage}
+                          />
+                        </TouchableOpacity>
+                      </Left>
+
+                      <Right style={{flex: 0.7}}>
+                        <Text
+                          onPress={() => {
+                            console.log('tıkla');
+                          }}
+                          style={{
+                            flex: 1,
+                            color: '#889099',
+                            textAlign: 'left',
+                          }}>
+                          Yardıma mı ihtiyacınız var?
+                        </Text>
+
+                        <Text
+                          style={{
+                            flex: 1,
+                            marginTop: 10,
+                            textAlign: 'left',
+                          }}>
+                          Bizimle iletişime geç.
+                        </Text>
+                      </Right>
+                    </CardItem>
+                  </Card>
+                </Body>
+              </CardItem>
+            </Card>
+          </Content>
+        </LinearGradient>
+      </>
     );
   }
 }
@@ -302,5 +341,25 @@ const styles = StyleSheet.create({
 
     height: '100%',
     width: '100%',
+  },
+});
+
+const styles1 = StyleSheet.create({
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    backgroundColor: '#rgba(0, 0, 0, 0.5)',
+    zIndex: 1000,
+  },
+  activityIndicatorWrapper: {
+    backgroundColor: '#FFFFFF',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 });

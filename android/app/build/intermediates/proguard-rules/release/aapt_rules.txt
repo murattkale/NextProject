@@ -1,10 +1,10 @@
-# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:16
+# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:23
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:38
+# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:45
 -keep class com.facebook.react.devsupport.DevSettingsActivity { <init>(); }
-# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:25
+# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:32
 -keep class com.generalreactproject.MainActivity { <init>(); }
-# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:16
+# Referenced at C:\Users\DELL\Desktop\React\NextProject\android\app\build\intermediates\merged_manifests\release\AndroidManifest.xml:23
 -keep class com.generalreactproject.MainApplication { <init>(); }
 # Referenced at C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\2b7e6ebaa515cd43f42fb356f0d1941c\appcompat-1.1.0\res\layout-watch-v20\abc_alert_dialog_title_material.xml:53
 # Referenced at C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\7b4521e09033db39989053c4a0984cc2\material-1.1.0\res\layout\mtrl_alert_dialog_title.xml:41
