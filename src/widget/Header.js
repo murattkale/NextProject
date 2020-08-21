@@ -31,8 +31,6 @@ import {
 } from 'react-native';
 import {Actions, Scene, Router} from 'react-native-router-flux';
 
-import OptionsMenu from 'react-native-options-menu';
-
 import axios from 'axios';
 
 import {
@@ -235,8 +233,6 @@ export default class HeaderWidget extends React.Component {
 
   click_print() {
     this.LoadingShowHide(true);
-    alert('print click');
-    this.LoadingShowHide(false);
 
     var api2 =
       this.props.getApiUrl() +
@@ -247,29 +243,22 @@ export default class HeaderWidget extends React.Component {
 
     console.log(api2);
 
-    return;
-
     axios
       .get(api2)
       .then((response) => {
+        console.log(JSON.stringify(response));
         this.LoadingShowHide(false);
-        response = response.data;
-        if (response != null && response.ResultList.length > 0) {
-          console.log(JSON.parse(response));
-          alert('Etiket basım onayına gönderildi.');
-        } else {
-          alert(
-            'Etiket basımında beklenmeyen bir hata oluştu. Lütfen yetkililere bildiriniz.',
-          );
-        }
+        alert('Etiket basım onayına gönderildi.');
       })
       .catch(function (error) {
+        console.log(JSON.stringify(error));
         alert('Lütfen internet bağlantınızı kontrol ediniz.');
+        this.LoadingShowHide(false);
       });
   }
 
   click_list() {
-    // this.setSearchMore();
+    this.setSearchMore();
   }
 
   _getRMenu() {
@@ -397,7 +386,7 @@ export default class HeaderWidget extends React.Component {
                 onPress={() => this.setSearch()}
               />
             </Button>
-            {this._getRMenu()}
+            {/* {this._getRMenu()} */}
           </Right>
         </Header>
       </>

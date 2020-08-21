@@ -51,6 +51,7 @@ export default class Login extends React.Component {
       remember: false,
       UserName: '',
       Password: '',
+      loadingVisible: false,
     };
 
     // Subscribe
@@ -100,6 +101,12 @@ export default class Login extends React.Component {
     }
   }
 
+  LoadingShowHide = (deger) => {
+    this.setState({
+      loadingVisible: deger,
+    });
+  };
+
   dialCall = (number) => {
     let phoneNumber = '';
     if (Platform.OS === 'android') {
@@ -116,7 +123,7 @@ export default class Login extends React.Component {
       alert('Lütfen kullanıcı adınızı ve şifrenizi giriniz.');
       return;
     }
-    this.props.LoadingShowHide(true);
+    this.LoadingShowHide(true);
 
     var api =
       this.props.getApiUrl() +
@@ -129,9 +136,9 @@ export default class Login extends React.Component {
 
     var getAxios = await axios.get(api).catch(function (error) {
       alert('Lütfen internet bağlantınızı kontrol ediniz.');
-      this.props.LoadingShowHide(false);
+      this.LoadingShowHide(false);
     });
-    this.props.LoadingShowHide(false);
+    this.LoadingShowHide(false);
 
     var result = await getAxios;
     console.log(JSON.stringify(result));
@@ -140,7 +147,6 @@ export default class Login extends React.Component {
     // alert(JSON.stringify(result.user));
     if (result.user != null && result.user.Id > 0) {
       await Storage.set('user', result.user);
-
       Actions.Sube();
     } else {
       alert('Lütfen kullanıcı adı yada şifrenizi doğru giriniz');
@@ -170,6 +176,20 @@ export default class Login extends React.Component {
   render() {
     return (
       <>
+        <Modal
+          transparent={true}
+          animationType={'none'}
+          visible={this.state.loadingVisible}
+          // style={{zIndex: 1100}}
+          onRequestClose={() => {
+            console.log('close modal');
+          }}>
+          <View style={styles1.modalBackground}>
+            <View style={styles1.activityIndicatorWrapper}>
+              <ActivityIndicator animating={this.state.loadingVisible} />
+            </View>
+          </View>
+        </Modal>
         <LinearGradient
           colors={['#5e72eb', '#120c6e']}
           style={styles.linearGradient}>

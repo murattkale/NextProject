@@ -209,7 +209,7 @@ export default class SideBar extends React.Component {
                       // justifyContent: 'center',
                       // alignItems: 'center',
                     }}>
-                    2019 Zırhlıoğlu Gıda
+                    2020 Zırhlıoğlu Gıda
                   </Text>
                 </ListItem>
               </List>

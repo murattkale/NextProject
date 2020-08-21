@@ -29,6 +29,7 @@ import {
   Tabs,
   Tab,
   TabHeading,
+  ScrollView,
 } from 'native-base';
 
 import HeaderWidget from '../widget/Header';
@@ -36,6 +37,7 @@ import FooterWidget from '../widget/Footer';
 import pImage from '../assets/img/pImage.png';
 import axios from 'axios';
 import color from '../assets/css/style';
+import {Actions} from 'react-native-router-flux';
 
 export default class Detail extends Component {
   constructor(props) {
@@ -182,6 +184,80 @@ export default class Detail extends Component {
   switchScreen(index) {
     this.setState({currentTab: index});
   }
+
+  setSearchMore() {
+    this.LoadingShowHide(true);
+    this.setState({inputHide: false});
+
+    if (this.state.item?.malzeme_kodu != '') {
+      //
+      var api2 =
+        this.props.getApiUrl() +
+        '/api/Urun/Search?aranan_kelime=' +
+        this.state.item?.malzeme_kodu +
+        '&user=Admin&SubeKodu=' +
+        this.state.sube +
+        '&Liste_Turu=' +
+        9;
+
+      console.log(api2);
+      axios
+        .get(api2)
+        .then((response) => {
+          this.LoadingShowHide(false);
+          response = response.data;
+          if (response != null && response.ResultList.length > 0) {
+            console.log(JSON.stringify(response));
+            Actions.SearchList({
+              sube: this.state.sube,
+              items: response.ResultList,
+            });
+          }
+        })
+        .catch(function (error) {
+          alert('Lütfen internet bağlantınızı kontrol ediniz.');
+          this.LoadingShowHide(false);
+        });
+    } else {
+      // if (!this.state.IsSearch) {
+      //   this.setState({IsSearch: true});
+      // } else {
+      //   this.setState({IsSearch: false});
+      //   alert('Lütfen arama yapmak istediğiniz kelimeyi giriniz.');
+      // }
+    }
+  }
+
+  click_print() {
+    this.LoadingShowHide(true);
+
+    var api2 =
+      this.props.getApiUrl() +
+      '/api/Urun/mob_okutulan_malzeme_etiket_basimi?sube=' +
+      this.state.sube +
+      '&malzeme_kodu=' +
+      this.state.item?.malzeme_kodu;
+
+    console.log(api2);
+
+    axios
+      .get(api2)
+      .then((response) => {
+        console.log(JSON.stringify(response));
+        this.LoadingShowHide(false);
+        if (response != null && response.ResultList.length > 0) {
+          alert('Etiket basım onayına gönderildi.');
+        } else {
+          alert('Etiket basılamadı. Lütfen yetkililere ulaşınız.');
+        }
+      })
+      .catch(function (error) {
+        console.log(JSON.stringify(error));
+        alert('Lütfen internet bağlantınızı kontrol ediniz.');
+        this.LoadingShowHide(false);
+      });
+  }
+
   render() {
     return (
       <>
@@ -317,6 +393,7 @@ export default class Detail extends Component {
               </Body>
             </ListItem>
           </Card>
+
           <Tabs
             onChangeTab={({i}) => this.switchScreen(i)}
             style={{marginTop: 0}}>
@@ -477,6 +554,24 @@ export default class Detail extends Component {
               </List>
             </Tab>
           </Tabs>
+
+          <View style={{flex: 1}}>
+            <Fab
+              active={this.state.active}
+              direction="up"
+              containerStyle={{}}
+              style={{backgroundColor: '#5067FF'}}
+              position="bottomRight"
+              onPress={() => this.setState({active: !this.state.active})}>
+              <Icon name="cog" type="Entypo" />
+              <Button onPress={() => this.setSearchMore()}>
+                <Icon type="FontAwesome" name="list-ul" />
+              </Button>
+              <Button onPress={() => this.click_print()}>
+                <Icon type="FontAwesome" name="print" />
+              </Button>
+            </Fab>
+          </View>
 
           <FooterWidget sube={this.state.sube} />
         </Container>
