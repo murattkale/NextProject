@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GeneralReactProject.iml" filepath="$PROJECT_DIR$/GeneralReactProject.iml" group="GeneralReactProject" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="GeneralReactProject/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1222396756/react-native-camera-kit.iml" filepath="$PROJECT_DIR$/.idea/modules/-1222396756/react-native-camera-kit.iml" group="GeneralReactProject/react-native-camera-kit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-372689806/react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/-372689806/react-native-community_async-storage.iml" group="GeneralReactProject/react-native-community_async-storage" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/499989448/react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/499989448/react-native-gesture-handler.iml" group="GeneralReactProject/react-native-gesture-handler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/330719897/react-native-keyevent.iml" filepath="$PROJECT_DIR$/.idea/modules/330719897/react-native-keyevent.iml" group="GeneralReactProject/react-native-keyevent" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1119940570/react-native-linear-gradient.iml" filepath="$PROJECT_DIR$/.idea/modules/1119940570/react-native-linear-gradient.iml" group="GeneralReactProject/react-native-linear-gradient" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/138618196/react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/138618196/react-native-reanimated.iml" group="GeneralReactProject/react-native-reanimated" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/650034057/react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/650034057/react-native-screens.iml" group="GeneralReactProject/react-native-screens" />
     </modules>
   </component>
 </project>
